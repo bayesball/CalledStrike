@@ -1,5 +1,6 @@
 setup_sc <- function(sc){
-  called_situations <- unique(sc$description)[c(2, 5, 8)]
+  called_situations <- c("blocked ball", "ball",
+                         "called_strike")
   filter(sc, description %in%
            called_situations) %>%
     mutate(Strike = ifelse(description ==
