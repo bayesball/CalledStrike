@@ -1,4 +1,4 @@
-setup_sc <- function(sc){
+setup_called <- function(sc){
   require(dplyr)
   called_situations <- c("blocked ball", "ball",
                          "called_strike")

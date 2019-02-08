@@ -1,7 +1,7 @@
 cplot <- function(fit, P = 0.5){
   require(ggplot2)
   require(mgcv)
-  df_p <- expand.grid(plate_x = seq(-1.2, 1.2, length=50),
+  df_p <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
                       plate_z = seq(1, 4, length=50))
   df_p$lp <- predict(fit, df_p)
   df_p$Probability <- exp(df_p$lp) / (1 + exp(df_p$lp))
