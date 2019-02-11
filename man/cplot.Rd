@@ -8,7 +8,7 @@
   Constructs contour plot from output from an generalized additive fit
 }
 \usage{
-  cplot(fit, P)
+  cplot(fit, P = 0.5)
 }
 \arguments{
   \item{fit}{
