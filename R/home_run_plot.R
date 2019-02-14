@@ -1,8 +1,8 @@
 home_run_plot <- function(data, title){
   data %>%
     setup_inplay() %>%
-    gam_fit3() %>%
-    cplot2() +
+    hr_h_gam_fit() %>%
+    tile_plot_p() +
     ggtitle(title) +
     centertitle()
 }

@@ -1,8 +1,8 @@
 miss_swing_plot <- function(data, title){
   data %>%
     setup_swing() %>%
-    gam_fit2() %>%
-    cplot2() +
+    miss_gam_fit() %>%
+    tile_plot_p() +
     ggtitle(title) +
     centertitle()
 }

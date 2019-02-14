@@ -1,8 +1,8 @@
 hit_plot <- function(data, title){
   data %>%
     setup_inplay() %>%
-    gam_fit3(HR = FALSE) %>%
-    cplot2() +
+    hr_h_gam_fit(HR = FALSE) %>%
+    tile_plot_p() +
     ggtitle(title) +
     centertitle()
 }
