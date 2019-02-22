@@ -1,5 +1,5 @@
-\name{cplot2}
-\alias{cplot2}
+\name{tile_plot_m}
+\alias{tile_plot_m}
 
 \title{
   Constructs heat map plot from gam fit
@@ -8,11 +8,11 @@
   Constructs heat map plot from output from an generalized additive fit
 }
 \usage{
-  cplot2(fit)
+  tile_plot_m(fit)
 }
 \arguments{
   \item{fit}{
-    saved gam fit with binary response
+    saved gam fit with continuous response
   }
 }
 \value{

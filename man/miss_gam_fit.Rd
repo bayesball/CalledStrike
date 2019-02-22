@@ -1,5 +1,5 @@
-\name{gam_fit2}
-\alias{gam_fit2}
+\name{miss_gam_fit}
+\alias{miss_gam_fit}
 
 \title{
   Implements generalized additive fit for swinging data
@@ -8,7 +8,7 @@
   Implements generalized additive fit where logit(prob(Miss)) = s(plate_x, plate_z)
 }
 \usage{
-  gam_fit2(d)
+  miss_gam_fit(d)
 }
 \arguments{
   \item{d}{

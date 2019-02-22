@@ -1,5 +1,5 @@
-\name{gam_fit}
-\alias{gam_fit}
+\name{strike_gam_fit}
+\alias{strike_gam_fit}
 
 \title{
   Implements generalized additive fit for called pitch data
@@ -8,7 +8,7 @@
   Implements generalized additive fit where logit(prob(Strike)) = s(plate_x, plate_z)
 }
 \usage{
-  gam_fit(d)
+  strike_gam_fit(d)
 }
 \arguments{
   \item{d}{

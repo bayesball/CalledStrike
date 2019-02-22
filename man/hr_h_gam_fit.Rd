@@ -1,5 +1,5 @@
-\name{gam_fit3}
-\alias{gam_fit3}
+\name{hr_h_gam_fit}
+\alias{hr_h_gam_fit}
 
 \title{
   Implements generalized additive fit for in-play data
@@ -8,7 +8,7 @@
   Implements generalized additive fit where logit(prob(HR)) = s(plate_x, plate_z)
 }
 \usage{
-  gam_fit3(d, HR = TRUE)
+  hr_h_gam_fit(d, HR = TRUE)
 }
 \arguments{
   \item{d}{

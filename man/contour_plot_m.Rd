@@ -1,5 +1,5 @@
-\name{cplot}
-\alias{cplot}
+\name{contour_plot_m}
+\alias{contour_plot_m}
 
 \title{
   Constructs contour plot from gam fit
@@ -8,14 +8,14 @@
   Constructs contour plot from output from an generalized additive fit
 }
 \usage{
-  cplot(fit, P = 0.5)
+  contour_plot_m(fit, M)
 }
 \arguments{
   \item{fit}{
-    saved gam fit with binary response
+    saved gam fit with continuous response
   }
-  \item{P}{
-    vector of probabilities for contour levels
+  \item{M}{
+    vector of values for contour levels
   }
 }
 \value{

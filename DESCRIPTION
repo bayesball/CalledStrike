@@ -1,11 +1,11 @@
 Package: CalledStrike
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Functions for Graphing Statcast Data
+Version: 0.2.0
+Author: Jim Albert
+Depends:  ggplot2, dplyr, baseballr
+Maintainer: Jim Albert <albert@bgsu.edu>
+Description: A collection of functions useful for scraping, fitting gam models, and graphing Statcast data.
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
