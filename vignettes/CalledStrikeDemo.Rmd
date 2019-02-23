@@ -11,11 +11,15 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
+Load the package.  It assumes that the packages ggplot2, dplyr, baseballr, and mgcv have already been loaded.
+
 ```{r}
 library(CalledStrike)
 ```
 
 #### Collect Data
+
+Here we find the MLBAM id for Mike Trout.  The get_sc_data() function (wrapper for the baseballr function) will download the Statcast data for Trout for the 2018 season.
 
 ```{r}
 mt_id <- get_id("Mike Trout")
@@ -24,11 +28,15 @@ mt <- get_sc_data(mt_id, 2018)
 
 #### Called Strikes
 
+This constructs a tile plot for the probability that a called pitch is a strike.
+
 ```{r}
 called_strike_plot(mt, "Mike Trout Called Strikes")
 ```
 
 #### Miss Swing Rates
+
+Constructs a tile plot for the probability that Trout misses on a swing.
 
 ```{r}
 miss_swing_plot(mt, "Mike Trout Miss Swing Rates")
@@ -36,9 +44,13 @@ miss_swing_plot(mt, "Mike Trout Miss Swing Rates")
 
 #### Zones of Hits and Home Runs
 
+Constructs a tile plot for the probability that Trout hits a home run on a ball in-play.
+
 ```{r}
 home_run_plot(mt, "Mike Trout Home Run Rates")
 ```
+
+Constructs a tile plot for the probability that Trout gets a hit on a ball in-play.
 
 ```{r}
 hit_plot(mt, "Mike Trout Hit Rates")
@@ -46,19 +58,29 @@ hit_plot(mt, "Mike Trout Hit Rates")
 
 #### Statcast Variables
 
+Constructs a tile plot for the launch speed on a ball in-play.
+
 ```{r}
 ls_plot(mt, "Mike Trout Launch Speeds")
 ```
 
+Constructs a tile plot for the launch angle on a ball in-play.
+
 ```{r}
 la_plot(mt, "Mike Trout Launch Angles")
 ```
+
+Constructs a tile plot for the spray angle on a ball in-play.
 
 ```{r}
 sa_plot(mt, "Mike Trout Spray Angles")
 ```
 
 #### Contour Plots
+
+The wrapper functions above all use tile plots, but these can be drawn using contour plots where one inputs the value for the contour lines.
+
+Here is a contour plot version of Trout's in-play hit rates.
 
 ```{r}
 mt %>%
@@ -68,6 +90,8 @@ mt %>%
     ggtitle("Mike Trout Hit Rates") +
     centertitle()
 ```
+
+Here is a contour plot version of Trout's in-play launch speeds.
 
 ```{r}
 mt %>%
