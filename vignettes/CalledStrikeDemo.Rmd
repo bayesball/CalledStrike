@@ -1,0 +1,80 @@
+---
+title: "CalledStrike"
+author: "Jim Albert"
+date: "2/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+```{r}
+library(CalledStrike)
+```
+
+#### Collect Data
+
+```{r}
+mt_id <- get_id("Mike Trout")
+mt <- get_sc_data(mt_id, 2018)
+```
+
+#### Called Strikes
+
+```{r}
+called_strike_plot(mt, "Mike Trout Called Strikes")
+```
+
+#### Miss Swing Rates
+
+```{r}
+miss_swing_plot(mt, "Mike Trout Miss Swing Rates")
+```
+
+#### Zones of Hits and Home Runs
+
+```{r}
+home_run_plot(mt, "Mike Trout Home Run Rates")
+```
+
+```{r}
+hit_plot(mt, "Mike Trout Hit Rates")
+```
+
+#### Statcast Variables
+
+```{r}
+ls_plot(mt, "Mike Trout Launch Speeds")
+```
+
+```{r}
+la_plot(mt, "Mike Trout Launch Angles")
+```
+
+```{r}
+sa_plot(mt, "Mike Trout Spray Angles")
+```
+
+#### Contour Plots
+
+```{r}
+mt %>%
+    setup_inplay() %>%
+    hr_h_gam_fit(HR = FALSE) %>%
+    contour_plot_p(P = c(0.3, 0.4, 0.5)) +
+    ggtitle("Mike Trout Hit Rates") +
+    centertitle()
+```
+
+```{r}
+mt %>%
+    setup_inplay() %>%
+    ls_gam_fit() %>%
+    contour_plot_m(M = c(80, 90, 100)) +
+    ggtitle("Mike Trout Launch Speeds") +
+    centertitle()
+```
+
