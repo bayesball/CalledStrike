@@ -1,4 +1,4 @@
-called_strike_plot <- function(data, title){
+called_strike_plot <- function(data, title = ""){
   data %>%
     setup_called() %>%
     strike_gam_fit() %>%

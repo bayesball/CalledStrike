@@ -1,4 +1,4 @@
-hit_plot <- function(data, title){
+hit_plot <- function(data, title = ""){
   data %>%
     setup_inplay() %>%
     hr_h_gam_fit(HR = FALSE) %>%

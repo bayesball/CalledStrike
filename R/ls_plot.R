@@ -1,4 +1,4 @@
-ls_plot <- function(data, title){
+ls_plot <- function(data, title = ""){
   data %>%
     setup_inplay() %>%
     ls_gam_fit() %>%

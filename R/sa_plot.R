@@ -1,4 +1,4 @@
-sa_plot <- function(data, title){
+sa_plot <- function(data, title = ""){
   data %>%
     setup_inplay() %>%
     sa_gam_fit() %>%
