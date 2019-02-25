@@ -23,7 +23,7 @@ Here we find the MLBAM id for Mike Trout.  The get_sc_data() function (wrapper f
 
 ```{r}
 mt_id <- get_id("Mike Trout")
-mt <- get_sc_data(mt_id, 2018)
+mt <- get_sc_data(mt_id, season = 2018)
 ```
 
 #### Called Strikes
@@ -102,3 +102,30 @@ mt %>%
     centertitle()
 ```
 
+#### Comparison Plots
+
+Let's compare Trout's performance for the 2017 and 2018 seasons. 
+
+First collect data for the two seasons:
+
+```{r}
+mt_07 <- get_sc_data(mt_id, season = 2017)
+mt_08 <- get_sc_data(mt_id, season = 2018)
+```
+
+Compare launch speeds for two seasons:
+
+```{r}
+compare_ip(mt_07, mt_08,
+           "2017 Trout", "2018 Trout", 
+           type = "ls")
+```
+
+
+Compare home run probabilities for the two seasons:
+
+```{r}
+compare_ip(mt_07, mt_08,
+           "2017 Trout", "2018 Trout", 
+           type = "hr")
+```
