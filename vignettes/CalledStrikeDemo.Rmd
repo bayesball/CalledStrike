@@ -1,7 +1,7 @@
 ---
-title: "CalledStrike"
+title: "CalledStrike Package"
 author: "Jim Albert"
-date: "2/22/2019"
+date: "2/26/2019"
 output: html_document
 ---
 
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
-Load the package.  It assumes that the packages ggplot2, dplyr, baseballr, and mgcv have already been loaded.
+Load the package.  It assumes that the packages ggplot2, dplyr, baseballr, and mgcv have already been installed.
 
 ```{r}
 library(CalledStrike)
@@ -56,7 +56,7 @@ Constructs a tile plot for the probability that Trout gets a hit on a ball in-pl
 hit_plot(mt, "Mike Trout Hit Rates")
 ```
 
-#### Statcast Variables
+#### Statcast Variables (launch speed, launch angle, spray angle)
 
 Constructs a tile plot for the launch speed on a ball in-play.
 
@@ -104,19 +104,21 @@ mt %>%
 
 #### Comparison Plots
 
+#### Comparison of Two Groups
+
 Let's compare Trout's performance for the 2017 and 2018 seasons. 
 
 First collect data for the two seasons:
 
 ```{r}
-mt_07 <- get_sc_data(mt_id, season = 2017)
-mt_08 <- get_sc_data(mt_id, season = 2018)
+mt_17 <- get_sc_data(mt_id, season = 2017)
+mt_18 <- get_sc_data(mt_id, season = 2018)
 ```
 
 Compare launch speeds for two seasons:
 
 ```{r}
-compare_ip(mt_07, mt_08,
+compare_ip(mt_17, mt_18,
            "2017 Trout", "2018 Trout", 
            type = "ls")
 ```
@@ -125,7 +127,33 @@ compare_ip(mt_07, mt_08,
 Compare home run probabilities for the two seasons:
 
 ```{r}
-compare_ip(mt_07, mt_08,
+compare_ip(mt_17, mt_18,
            "2017 Trout", "2018 Trout", 
            type = "hr")
 ```
+
+#### Comparison of Four Groups
+
+There is also a special function for comparing four groups.
+
+Also collect Trout statcast data for 2015 and 2016;
+
+```{r}
+mt_15 <- get_sc_data(mt_id, season = 2015)
+mt_16 <- get_sc_data(mt_id, season = 2016)
+```
+
+Put the four data frames in a list and add names.
+
+```{r}
+mtdata <- list(mt_15, mt_16, mt_17, mt_18)
+names(mtdata) <- paste("Trout", 2015:2018, sep= " ")
+```
+
+Now we can use the function compare_ip4():
+
+```{r}
+compare_ip4(mtdata, type = "h")
+```
+
+
