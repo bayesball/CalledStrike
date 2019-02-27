@@ -30,7 +30,7 @@
   }
 }
 \value{
-  Constructs a side-by-side tile plot of the variable (choices are launch speed ("ls"), launch angle ("la"), spray angle ("sa"), hit ("h"), and home run ("hr"))
+  Constructs a side-by-side tile plot of the variable (choices for type are launch speed ("ls"), launch angle ("la"), spray angle ("sa"), hit ("h"), and home run ("hr"))
 }
 \author{
   Jim Albert
