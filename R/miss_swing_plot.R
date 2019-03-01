@@ -1,4 +1,4 @@
-miss_swing_plot <- function(data, title){
+miss_swing_plot <- function(data, title=""){
   data %>%
     setup_swing() %>%
     miss_gam_fit() %>%
