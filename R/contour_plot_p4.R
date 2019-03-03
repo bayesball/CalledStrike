@@ -1,12 +1,21 @@
 contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
   # fitting part #####################
   flag <- TRUE
-  if(type %in% c("ms", "cs", "h", "hr") == FALSE){
+  if(type %in% c("ms", "cs", "h", "hr", "sw") == FALSE){
     print("Wrong type")
     flag <- FALSE
   }
   if(flag == TRUE){
   fit <- vector(mode = "list", length = 4)
+  if (type == "sw"){
+    for(j in 1:4){
+      df[[j]] %>%
+        setup_all() %>%
+        swing_gam_fit() -> fit[[j]]
+      title <- "Missed Swing Rate"
+      if(missing(P) == TRUE) P <- c(0.25, 0.5, 0.75)
+    }
+  }
   if (type == "ms"){
     for(j in 1:4){
       df[[j]] %>%

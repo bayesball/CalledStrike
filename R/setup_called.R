@@ -1,5 +1,4 @@
 setup_called <- function(sc){
-  require(dplyr)
   called_situations <- c("blocked ball", "ball",
                          "called_strike")
   filter(sc, description %in%
