@@ -1,5 +1,5 @@
-\name{compare_plot_p4}
-\alias{compare_plot_p4}
+\name{contour_plot_p4}
+\alias{contour_plot_p4}
 
 \title{
   Compare Four In-Play Rate Distributions
@@ -8,7 +8,7 @@
   Constructs contour graph of four Statcast datasets
 }
 \usage{
-  compare_plot_p4(df, P = 0.5, type = "ms")
+  contour_plot_p4(df, P = 0.5, type = "ms")
 }
 \arguments{
   \item{df}{
@@ -22,7 +22,7 @@
   }
 }
 \value{
-  Constructs 2 x 2 grid tile plots of the variable (choices for type are called strike ("cs"), miss swing ("ms"), hit ("h"), and home run ("hr"))
+  Constructs 2 x 2 grid contour plots of the variable (choices for type are called strike ("cs"), miss swing ("ms"), hit ("h"), and home run ("hr"))
 }
 \author{
   Jim Albert
