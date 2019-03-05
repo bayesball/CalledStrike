@@ -1,5 +1,5 @@
-\name{compare_plot_m4}
-\alias{compare_plot_m4}
+\name{contour_plot_m4}
+\alias{contour_plot_m4}
 
 \title{
   Compare Four In-Play Mean Distributions
@@ -8,7 +8,7 @@
   Constructs contour graph of four Statcast datasets
 }
 \usage{
-  compare_plot_m4(df, M = 50, type = "ls")
+  contour_plot_m4(df, M = 50, type = "ls")
 }
 \arguments{
   \item{df}{
@@ -22,7 +22,7 @@
   }
 }
 \value{
-  Constructs 2 x 2 grid tile plots of the variable (choices for type are launch speed ("ls"), launch angle ("la"), and spray angle ("sa"))
+  Constructs 2 x 2 grid contour plots of the variable (choices for type are launch speed ("ls"), launch angle ("la"), and spray angle ("sa"))
 }
 \author{
   Jim Albert
