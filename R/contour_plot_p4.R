@@ -1,4 +1,4 @@
-contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
+contour_plot_p4 <- function(df, P = 0.5, type = "ms", gtype = "c"){
   # fitting part #####################
   flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw") == FALSE){
@@ -81,7 +81,8 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
     x=c(inKzone, inKzone, outKzone, outKzone, inKzone),
     y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
   )
-  ggplot(df_p)  +
+  if(gtype == "c"){
+  myplot <- ggplot(df_p)  +
     stat_contour(aes(x=plate_x, y=plate_z,
                      z=Probability,
                      color = stat(level)),
@@ -96,5 +97,25 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
     ggtitle(title) +
     centertitle() +
     increasefont()
+  }
+  if(gtype == "f"){
+    myplot <- ggplot(df_p)  +
+      stat_contour(geom="polygon",
+                   aes(x=plate_x, y=plate_z,
+                       z=Probability,
+                       fill = stat(level)),
+                   breaks=c(P),
+                   size=1.5) +
+      scale_fill_gradientn(colors=
+                             c("yellow",
+                               "orange",
+                               "red")) +
+      geom_path(aes(x, y), data=kZone,
+                lwd=1, col="black") +
+      xlim(-1.5, 1.5) +
+      ylim(1.0, 4.0)  +
+      coord_fixed()
+  }
+  myplot
   }
 }
