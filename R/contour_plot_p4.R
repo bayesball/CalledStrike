@@ -12,7 +12,7 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
       df[[j]] %>%
         setup_all() %>%
         swing_gam_fit() -> fit[[j]]
-      title <- "Missed Swing Rate"
+      title <- "Swing Rate"
       if(missing(P) == TRUE) P <- c(0.25, 0.5, 0.75)
     }
   }
@@ -21,7 +21,7 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
       df[[j]] %>%
       setup_swing() %>%
       miss_gam_fit() -> fit[[j]]
-      title <- "Missed Swing Rate"
+      title <- "Missed on Swing Rate"
       if(missing(P) == TRUE) P <- c(0.1, 0.2, 0.3)
     }
   }
