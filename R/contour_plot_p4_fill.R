@@ -1,4 +1,4 @@
-contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
+contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
   # fitting part #####################
   flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw") == FALSE){
@@ -49,7 +49,7 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
         setup_inplay() %>%
         hr_h_gam_fit(HR = TRUE) -> fit[[j]]
         title <- "In-Play Home Run Rate"
-        if(missing(P) == TRUE) P <- c(.05, .1, .15)
+       if(missing(P) == TRUE) P <- c(.05, .1, .15)
     }
   }
 
@@ -82,16 +82,21 @@ contour_plot_p4 <- function(df, P = 0.5, type = "ms"){
     y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
   )
   ggplot(df_p)  +
-    stat_contour(aes(x=plate_x, y=plate_z,
-                     z=Probability,
-                     color = stat(level)),
-                 breaks=c(P),
-                 size=1.5) +
-    geom_path(aes(x, y), data=kZone,
-              lwd=1, col="red") +
-    xlim(-1.5, 1.5) +
-    ylim(1.0, 4.0)  +
-    coord_fixed() +
+      stat_contour(geom="polygon",
+                   aes(x=plate_x, y=plate_z,
+                       z=Probability,
+                       fill = stat(level)),
+                   breaks=c(P),
+                   size=1.5) +
+      scale_fill_gradientn(colors=
+                             c("yellow",
+                               "orange",
+                               "red")) +
+      geom_path(aes(x, y), data=kZone,
+                lwd=1, col="black") +
+      xlim(-1.5, 1.5) +
+      ylim(1.0, 4.0)  +
+      coord_fixed() +
     facet_wrap(~ Group, ncol = 2) +
     ggtitle(title) +
     centertitle() +
