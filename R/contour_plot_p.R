@@ -1,4 +1,5 @@
 contour_plot_p <- function(fit, P = 0.5, gtype = "c"){
+  require(metR)
   df_p <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
                       plate_z = seq(1, 4, length=50))
   df_p$lp <- predict(fit, df_p)
@@ -26,16 +27,11 @@ contour_plot_p <- function(fit, P = 0.5, gtype = "c"){
   }
   if(gtype == "f"){
     ggplot(df_p)  +
-      stat_contour(geom="polygon",
-                   aes(x=plate_x, y=plate_z,
-                       z=Probability,
-                       fill = stat(level)),
-                   breaks=c(P),
-                   size=1.5) +
-      scale_fill_gradientn(colors=
-                             c("yellow",
-                               "orange",
-                               "red")) +
+      geom_contour_fill(aes(x=plate_x, y=plate_z,
+                            z=Probability),
+                        breaks=c(P),
+                        size=1.5) +
+      scale_fill_distiller(palette="Spectral") +
       geom_path(aes(x, y), data=kZone,
                 lwd=1, col="black") +
       xlim(-1.5, 1.5) +

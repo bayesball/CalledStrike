@@ -25,16 +25,11 @@ contour_plot_m <- function(fit, M, gtype = "c"){
   }
   if(gtype == "f"){
     ggplot(df_p)  +
-      stat_contour(geom="polygon",
-                   aes(x=plate_x, y=plate_z,
-                       z=lp,
-                       fill = stat(level)),
-                   breaks=c(M),
-                   size=1.5) +
-      scale_fill_gradientn(colors=
-                             c("yellow",
-                               "orange",
-                               "red")) +
+      geom_contour_fill(aes(x=plate_x, y=plate_z,
+                            z=lp),
+                        breaks=c(M),
+                        size=1.5) +
+      scale_fill_distiller(palette="Spectral") +
       geom_path(aes(x, y), data=kZone,
                 lwd=1, col="black") +
       xlim(-1.5, 1.5) +
