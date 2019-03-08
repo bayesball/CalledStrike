@@ -1,4 +1,5 @@
 contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
+  require(metR)
   # fitting part #####################
   flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw") == FALSE){
@@ -82,16 +83,11 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
     y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
   )
   ggplot(df_p)  +
-      stat_contour(geom="polygon",
-                   aes(x=plate_x, y=plate_z,
-                       z=Probability,
-                       fill = stat(level)),
+      geom_contour_fill(aes(x=plate_x, y=plate_z,
+                       z=Probability),
                    breaks=c(P),
                    size=1.5) +
-      scale_fill_gradientn(colors=
-                             c("yellow",
-                               "orange",
-                               "red")) +
+    scale_fill_distiller(palette="Spectral")  +
       geom_path(aes(x, y), data=kZone,
                 lwd=1, col="black") +
       xlim(-1.5, 1.5) +

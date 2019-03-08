@@ -1,0 +1,88 @@
+---
+title: "Votto_Four_Seasons"
+author: "Jim Albert"
+date: "3/8/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+Collect Votto data for four seasons:
+
+```{r}
+library(CalledStrike)
+bh_id <- get_id("Joey Votto")
+bh18 <- get_sc_data(bh_id, season = 2018)
+bh17 <- get_sc_data(bh_id, season = 2017)
+bh16 <- get_sc_data(bh_id, season = 2016)
+bh15 <- get_sc_data(bh_id, season = 2015)
+```
+
+Put the four data frames in a single list.
+
+```{r}
+bh <- list(bh15, bh16, bh17, bh18)
+names(bh) <- paste(2015:2018, " Votto")
+```
+
+Illustrate filled contour plots on different measures of hitting.
+
+In-play hit rate:
+
+```{r}
+contour_plot_p4_fill(bh, type = "h")
+```
+
+In-play home run rate:
+
+```{r}
+contour_plot_p4_fill(bh, type = "hr")
+```
+
+Missed in a swing rate:
+
+```{r}
+contour_plot_p4_fill(bh, type = "ms",
+           P = c(.1, .15, .20, .25, .3, .35, .4))
+```
+
+Called strike rate:
+
+```{r}
+contour_plot_p4_fill(bh, type = "cs")
+```
+
+Swing rate:
+
+```{r}
+contour_plot_p4_fill(bh, type = "sw")
+```
+
+Launch speed:
+
+```{r}
+contour_plot_m4_fill(bh, type = "ls",
+                     M = seq(75, 95, 5))
+```
+
+Spray angle:
+
+```{r}
+contour_plot_m4_fill(bh, type = "sa")
+
+```
+
+Launch angle:
+
+```{r}
+contour_plot_m4_fill(bh, type = "la")
+```
+
+
+
+
+
