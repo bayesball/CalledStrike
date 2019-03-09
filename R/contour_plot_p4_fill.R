@@ -1,15 +1,18 @@
-contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
+contour_plot_p4_fill <- function(df, P = 0.5,
+                                 type = "ms",
+                                 Ncol = 2){
   require(metR)
   # fitting part #####################
+  N_df <- length(df)
   flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw") == FALSE){
     print("Wrong type")
     flag <- FALSE
   }
   if(flag == TRUE){
-  fit <- vector(mode = "list", length = 4)
+  fit <- vector(mode = "list", length = N_df)
   if (type == "sw"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_all() %>%
         swing_gam_fit() -> fit[[j]]
@@ -18,7 +21,7 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
     }
   }
   if (type == "ms"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
       setup_swing() %>%
       miss_gam_fit() -> fit[[j]]
@@ -27,7 +30,7 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
     }
   }
   if (type == "cs"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_called() %>%
         strike_gam_fit() -> fit[[j]]
@@ -36,7 +39,7 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
     }
   }
   if (type == "h"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_inplay() %>%
         hr_h_gam_fit(HR = FALSE) -> fit[[j]]
@@ -45,7 +48,7 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
     }
   }
   if (type == "hr"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_inplay() %>%
         hr_h_gam_fit(HR = TRUE) -> fit[[j]]
@@ -55,24 +58,16 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
   }
 
   ####################################
-  df_p1 <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
+  grid <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
                       plate_z = seq(1, 4, length=50))
-  df_p1$lp <- predict(fit[[1]], df_p1)
-  df_p1$Probability <- exp(df_p1$lp) / (1 + exp(df_p1$lp))
-  df_p1$Group <- names(df)[1]
-  df_p2 <- df_p1
-  df_p2$lp <- predict(fit[[2]], df_p2)
-  df_p2$Probability <- exp(df_p2$lp) / (1 + exp(df_p2$lp))
-  df_p2$Group <- names(df)[2]
-  df_p3 <- df_p1
-  df_p3$lp <- predict(fit[[3]], df_p3)
-  df_p3$Probability <- exp(df_p3$lp) / (1 + exp(df_p3$lp))
-  df_p3$Group <- names(df)[3]
-  df_p4 <- df_p1
-  df_p4$lp <- predict(fit[[4]], df_p4)
-  df_p4$Probability <- exp(df_p4$lp) / (1 + exp(df_p4$lp))
-  df_p4$Group <- names(df)[4]
-  df_p <- rbind(df_p1, df_p2, df_p3, df_p4)
+  df_p <- NULL
+  for(j in 1:N_df){
+    df_c <- grid
+    df_c$lp <- predict(fit[[j]], df_c)
+    df_c$Probability <- exp(df_c$lp) / (1 + exp(df_c$lp))
+    df_c$Group <- names(df)[j]
+    df_p <- rbind(df_p, df_c)
+  }
 
   topKzone <- 3.5
   botKzone <- 1.6
@@ -93,7 +88,7 @@ contour_plot_p4_fill <- function(df, P = 0.5, type = "ms"){
       xlim(-1.5, 1.5) +
       ylim(1.0, 4.0)  +
       coord_fixed() +
-    facet_wrap(~ Group, ncol = 2) +
+    facet_wrap(~ Group, ncol = Ncol) +
     ggtitle(title) +
     centertitle() +
     increasefont()

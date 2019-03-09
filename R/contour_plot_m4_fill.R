@@ -1,5 +1,8 @@
-contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
+contour_plot_m4_fill <- function(df, M = 50,
+                                 type = "ls",
+                                 Ncol = 2){
   require(metR)
+  N_df <- length(df)
   # fitting part #####################
   flag <- TRUE
   if(type %in% c("ls", "la", "sa") == FALSE){
@@ -7,9 +10,9 @@ contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
     flag <- FALSE
   }
   if(flag == TRUE){
-  fit <- vector(mode = "list", length = 4)
+  fit <- vector(mode = "list", length = N_df)
   if (type == "ls"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_inplay() %>%
         ls_gam_fit() -> fit[[j]]
@@ -18,7 +21,7 @@ contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
     }
   }
   if (type == "la"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_inplay() %>%
         la_gam_fit() -> fit[[j]]
@@ -27,7 +30,7 @@ contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
     }
   }
   if (type == "sa"){
-    for(j in 1:4){
+    for(j in 1:N_df){
       df[[j]] %>%
         setup_inplay() %>%
         sa_gam_fit() -> fit[[j]]
@@ -37,20 +40,15 @@ contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
   }
 
   ####################################
-  df_p1 <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
+  grid <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
                       plate_z = seq(1, 4, length=50))
-  df_p1$lp <- predict(fit[[1]], df_p1)
-  df_p1$Group <- names(df)[1]
-  df_p2 <- df_p1
-  df_p2$lp <- predict(fit[[2]], df_p2)
-  df_p2$Group <- names(df)[2]
-  df_p3 <- df_p1
-  df_p3$lp <- predict(fit[[3]], df_p3)
-  df_p3$Group <- names(df)[3]
-  df_p4 <- df_p1
-  df_p4$lp <- predict(fit[[4]], df_p4)
-  df_p4$Group <- names(df)[4]
-  df_p <- rbind(df_p1, df_p2, df_p3, df_p4)
+  df_p <- NULL
+  for(j in 1:N_df){
+    df_c <- grid
+    df_c$lp <- predict(fit[[j]], df_c)
+    df_c$Group <- names(df)[j]
+    df_p <- rbind(df_p, df_c)
+  }
 
   topKzone <- 3.5
   botKzone <- 1.6
@@ -71,7 +69,7 @@ contour_plot_m4_fill <- function(df, M = 50, type = "ls"){
     xlim(-1.5, 1.5) +
     ylim(1.0, 4.0)  +
     coord_fixed() +
-    facet_wrap(~ Group, ncol = 2) +
+    facet_wrap(~ Group, ncol = Ncol) +
     ggtitle(title) +
     centertitle() +
     increasefont()

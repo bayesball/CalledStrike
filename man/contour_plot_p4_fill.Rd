@@ -2,17 +2,17 @@
 \alias{contour_plot_p4_fill}
 
 \title{
-  Compare Four In-Play Rate Distributions
+  Compare Rate Distributions
 }
 \description{
-  Constructs filled contour graph of four Statcast datasets
+  Constructs filled contour graphs of one more Statcast datasets
 }
 \usage{
   contour_plot_p4_fill(df, P = 0.5, type = "ms")
 }
 \arguments{
   \item{df}{
-    list of data frames containing four Statcast datasets
+    list of data frames containing Statcast datasets
     }
   \item{P}{
     vector of probabilities for contour levels
