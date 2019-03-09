@@ -3,7 +3,7 @@ Type: Package
 Title: Functions for Graphing Statcast Data
 Version: 0.2.0
 Author: Jim Albert
-Depends:  ggplot2, dplyr, baseballr, mgcv
+Depends:  ggplot2, dplyr, baseballr, mgcv, metR
 Maintainer: Jim Albert <albert@bgsu.edu>
 Description: A collection of functions useful for scraping, fitting gam models, and graphing Statcast data.
 License: GPL (>= 2)
