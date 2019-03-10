@@ -17,7 +17,7 @@ compare_contour<- function(df, L = 0.5,
         setup_all() %>%
         swing_gam_fit() -> fit[[j]]
       title <- "Swing Rate"
-      if(missing(L) == TRUE) L <- c(0.25, 0.5, 0.75)
+      if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
     }
   }
   if (type == "ms"){
@@ -26,7 +26,7 @@ compare_contour<- function(df, L = 0.5,
       setup_swing() %>%
       miss_gam_fit() -> fit[[j]]
       title <- "Missed on Swing Rate"
-      if(missing(L) == TRUE) L <- c(0.1, 0.2, 0.3)
+      if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
     }
   }
   if (type == "cs"){
@@ -44,7 +44,7 @@ compare_contour<- function(df, L = 0.5,
         setup_inplay() %>%
         hr_h_gam_fit(HR = FALSE) -> fit[[j]]
         title <- "In-Play Hit Rate"
-        if(missing(L) == TRUE) L <- c(0.2, 0.3, 0.4)
+        if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
     }
   }
   if (type == "hr"){
@@ -53,7 +53,7 @@ compare_contour<- function(df, L = 0.5,
         setup_inplay() %>%
         hr_h_gam_fit(HR = TRUE) -> fit[[j]]
         title <- "In-Play Home Run Rate"
-       if(missing(L) == TRUE) L <- c(.05, .1, .15)
+       if(missing(L) == TRUE) L <- seq(.04, .16, by = 0.04)
     }
   }
   if (type == "ls"){
@@ -62,7 +62,7 @@ compare_contour<- function(df, L = 0.5,
         setup_inplay() %>%
         ls_gam_fit() -> fit[[j]]
       title <- "Launch Speed"
-      if(missing(L) == TRUE) L <- c(80, 90, 100)
+      if(missing(L) == TRUE) L <- seq(75, 105, by = 5)
     }
   }
   if (type == "la"){
@@ -71,7 +71,7 @@ compare_contour<- function(df, L = 0.5,
         setup_inplay() %>%
         la_gam_fit() -> fit[[j]]
       title <- "Launch Angle"
-      if(missing(L) == TRUE) L <- c(-10, 0, 20, 30)
+      if(missing(L) == TRUE) L <- c(-10, 0, 20, 30, 40)
     }
   }
   if (type == "sa"){
@@ -80,7 +80,7 @@ compare_contour<- function(df, L = 0.5,
         setup_inplay() %>%
         sa_gam_fit() -> fit[[j]]
       title <- "Spray Angle"
-      if(missing(L) == TRUE) L <- c(-20, 0, 20)
+      if(missing(L) == TRUE) L <- seq(-40, 40, by = 10)
     }
   }
 
