@@ -1,5 +1,6 @@
 collect_4_years <- function(player){
   id <- get_id(player)
+  id <- id[length(id)]
   d_15 <- get_sc_data(id, season = 2015)
   d_16 <- get_sc_data(id, season = 2016)
   d_17 <- get_sc_data(id, season = 2017)
