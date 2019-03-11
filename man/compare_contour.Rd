@@ -8,17 +8,20 @@
   Constructs filled contour graphs of one more Statcast datasets
 }
 \usage{
-  compare_contour(df, P = 0.5, type = "ms")
+  compare_contour((df, L = 0.5, type = "ms", Ncol = 2))
 }
 \arguments{
   \item{df}{
     list of data frames containing Statcast datasets
     }
-  \item{P}{
+  \item{L}{
     vector of contour levels
   }
   \item{type}{
     abbreviation for variable to be graphed
+  }
+  \item{Ncol}{
+    number of columns in faceted display
   }
 }
 \value{
