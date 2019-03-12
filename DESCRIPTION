@@ -1,7 +1,7 @@
 Package: CalledStrike
 Type: Package
 Title: Functions for Graphing Statcast Data
-Version: 0.2.0
+Version: 0.3.0
 Author: Jim Albert
 Depends:  ggplot2, dplyr, baseballr, mgcv, metR
 Maintainer: Jim Albert <albert@bgsu.edu>
