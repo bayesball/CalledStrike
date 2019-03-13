@@ -1,7 +1,11 @@
 compare_contour<- function(df, L = 0.5,
                                  type = "ms",
                                  Ncol = 2){
-  # fitting part #####################
+  # handle if df is a data frame for a single player
+  if(is.list(df) == TRUE) {
+    df <- list(df)
+    names(df) <- "Player"
+  }
   N_df <- length(df)
   flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw",
