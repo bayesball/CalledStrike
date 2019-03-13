@@ -2,7 +2,7 @@ compare_contour<- function(df, L = 0.5,
                                  type = "ms",
                                  Ncol = 2){
   # handle if df is a data frame for a single player
-  if(is.list(df) == TRUE) {
+  if(is.list(df) == FALSE) {
     df <- list(df)
     names(df) <- "Player"
   }
