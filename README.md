@@ -5,6 +5,7 @@ Package for manipulating, modeling, and visualizing Statcast pitching data.
 To install:
 
 library(devtools)
+
 install_github("bayesball/CalledStrike")
 
 Depreciated functions:
