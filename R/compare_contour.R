@@ -2,7 +2,7 @@ compare_contour<- function(df, L = 0.5,
                                  type = "ms",
                                  Ncol = 2){
   # handle if df is a data frame for a single player
-  if(is.list(df) == FALSE) {
+  if(is.data.frame(df) == TRUE) {
     df <- list(df)
     names(df) <- "Player"
   }
@@ -30,7 +30,7 @@ compare_contour<- function(df, L = 0.5,
       setup_swing() %>%
       miss_gam_fit() -> fit[[j]]
       title <- "Missed on Swing Rate"
-      if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
+     if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
     }
   }
   if (type == "cs"){
