@@ -6,13 +6,13 @@ compare_tile <- function(df,  type = "ms",
     names(df) <- "Player"
   }
   N_df <- length(df)
-  flag <- TRUE
+#  flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw",
                  "la", "ls", "sa") == FALSE){
-    print("Wrong type")
-    flag <- FALSE
+    stop("Wrong type")
+ #   flag <- FALSE
   }
-  if(flag == TRUE){
+#  if(flag == TRUE){
   fit <- vector(mode = "list", length = N_df)
   if (type == "sw"){
     for(j in 1:N_df){
@@ -115,5 +115,5 @@ compare_tile <- function(df,  type = "ms",
     ggtitle(title) +
     centertitle() +
     increasefont()
-  }
+#  }
 }

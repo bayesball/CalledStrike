@@ -1,19 +1,20 @@
 compare_contour<- function(df, L = 0.5,
                                  type = "ms",
-                                 Ncol = 2){
+                                 Ncol = 2,
+                                 etitle = ""){
   # handle if df is a data frame for a single player
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
     names(df) <- "Player"
   }
   N_df <- length(df)
-  flag <- TRUE
+#  flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw",
                  "la", "ls", "sa") == FALSE){
-    print("Wrong type")
-    flag <- FALSE
+    stop("Wrong type")
+#    flag <- FALSE
   }
-  if(flag == TRUE){
+#  if(flag == TRUE){
   fit <- vector(mode = "list", length = N_df)
   if (type == "sw"){
     for(j in 1:N_df){
@@ -122,8 +123,8 @@ compare_contour<- function(df, L = 0.5,
       ylim(1.0, 4.0)  +
       coord_fixed() +
     facet_wrap(~ Group, ncol = Ncol) +
-    ggtitle(title) +
+    ggtitle(paste(title, etitle)) +
     centertitle() +
     increasefont()
-  }
+#  }
 }
