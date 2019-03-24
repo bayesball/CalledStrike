@@ -8,7 +8,7 @@
   Scrapes Statcast data for a specific hitter
 }
 \usage{
-  get_sc_data(id, season = 2018)
+  get_sc_data(id, season = 2018, batter = TRUE)
 }
 \arguments{
   \item{id}{
@@ -16,6 +16,9 @@
   }
   \item{season}{
     Season
+  }
+  \item{batter}{
+   should batter or pitcher data be collected
   }
 }
 \value{

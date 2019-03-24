@@ -8,7 +8,8 @@
   Collects Statcast data for many players for one season
 }
 \usage{
-  collect_many_players(player_list, Season = 2018)
+  collect_many_players(player_list, Season = 2018,
+                       Batter = TRUE)
 }
 \arguments{
   \item{player}{
@@ -16,6 +17,9 @@
   }
   \item{Season}{
    season of interest
+  }
+  \item{Batter}{
+   should batter or pitcher data be collected
   }
 }
 \value{
