@@ -1,8 +1,10 @@
 collect_many_players <- function(player_list,
-                                 season = 2018){
+                                 Season = 2018,
+                                 Batter = TRUE){
   require(purrr)
   dfs <- map(player_list,
-             collect_player, Season = season)
+             collect_player, Season = Season,
+             Batter = Batter)
   names(dfs) <- player_list
   dfs
 }
