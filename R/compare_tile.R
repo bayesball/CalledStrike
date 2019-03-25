@@ -6,6 +6,11 @@ compare_tile <- function(df,  type = "ms",
     names(df) <- "Player"
   }
   N_df <- length(df)
+  if(is.list(df) == TRUE){
+    if(length(names(df)) == 0){
+      names(df) <- paste("Player", 1:N_df)
+    }
+  }
 #  flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw",
                  "la", "ls", "sa") == FALSE){
