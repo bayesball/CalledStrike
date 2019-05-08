@@ -3,7 +3,7 @@ hr_contour_plot <- function(fit,
                             gtype = "f"){
   require(metR)
   df_p <- expand.grid(launch_angle =
-                        seq(10, 40, length=50),
+                        seq(15, 40, length=50),
                       launch_speed =
                         seq(90, 115, length=50))
   df_p$Probability <- predict(fit, df_p,
