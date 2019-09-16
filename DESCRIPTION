@@ -1,9 +1,9 @@
 Package: CalledStrike
 Type: Package
 Title: Functions for Graphing Statcast Data
-Version: 0.3.0
+Version: 0.4.0
 Author: Jim Albert
-Depends:  ggplot2, dplyr, baseballr, mgcv, metR
+Depends:  ggplot2, dplyr, baseballr, mgcv, metR, purrr
 Maintainer: Jim Albert <albert@bgsu.edu>
 Description: A collection of functions useful for scraping, fitting gam models, and graphing Statcast data.
 License: GPL (>= 2)

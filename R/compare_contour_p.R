@@ -1,7 +1,6 @@
 compare_contour_p <- function(df, P = 0.5,
                                  type = "ms",
                                  Ncol = 2){
-  require(metR)
   # fitting part #####################
   N_df <- length(df)
   flag <- TRUE
