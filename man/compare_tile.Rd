@@ -8,7 +8,7 @@
   Constructs heat map of one more Statcast datasets
 }
 \usage{
-  compare_tile((df, type = "ms", Ncol = 2))
+  compare_tile(df, type = "ms", Ncol = 2)
 }
 \arguments{
   \item{df}{

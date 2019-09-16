@@ -8,7 +8,7 @@
   Constructs filled contour graphs of one more Statcast datasets
 }
 \usage{
-  compare_contour((df, L = 0.5, type = "ms", Ncol = 2))
+  compare_contour(df, L = 0.5, type = "ms", Ncol = 2, etitle = "")
 }
 \arguments{
   \item{df}{
@@ -22,6 +22,9 @@
   }
   \item{Ncol}{
     number of columns in faceted display
+  }
+  \item{etitle}{
+    additional text to add to title of graph
   }
 }
 \value{

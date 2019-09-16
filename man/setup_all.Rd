@@ -8,10 +8,10 @@
   Sets up Statcast data to define Swing and Count
 }
 \usage{
-  setup_all(d)
+  setup_all(sc)
 }
 \arguments{
-  \item{d}{
+  \item{sc}{
     Statcast data frame
   }
 }

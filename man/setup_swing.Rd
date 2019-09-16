@@ -8,10 +8,10 @@
   Sets up Statcast data to obtain swing pitches
 }
 \usage{
-  setup_swing(d)
+  setup_swing(sc)
 }
 \arguments{
-  \item{d}{
+  \item{sc}{
     Statcast data frame
   }
 }

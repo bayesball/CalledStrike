@@ -8,10 +8,10 @@
   Sets up Statcast data to obtain inplay pitches
 }
 \usage{
-  setup_inplay(d)
+  setup_inplay(sc)
 }
 \arguments{
-  \item{d}{
+  \item{sc}{
     Statcast data frame
   }
 }

@@ -12,7 +12,7 @@
                        Batter = TRUE)
 }
 \arguments{
-  \item{player}{
+  \item{player_list}{
     vector of player names
   }
   \item{Season}{

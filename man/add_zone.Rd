@@ -8,7 +8,12 @@
   Adds a strike zone layer to current graph
 }
 \usage{
-  add_zone()
+  add_zone(Color = "red")
+}
+\arguments{
+  \item{Color}{
+    color of zone edge
+  }
 }
 \value{
   ggplot2 layer to add a zone to current graph

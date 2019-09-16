@@ -8,10 +8,10 @@
   Sets up Statcast data to obtain called pitches
 }
 \usage{
-  setup_called(d)
+  setup_called(sc)
 }
 \arguments{
-  \item{d}{
+  \item{sc}{
     Statcast data frame
   }
 }
