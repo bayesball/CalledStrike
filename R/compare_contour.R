@@ -15,7 +15,7 @@ compare_contour<- function(df, L = 0.5,
   }
 #  flag <- TRUE
   if(type %in% c("ms", "cs", "h", "hr", "sw",
-                 "la", "ls", "sa") == FALSE){
+                 "la", "ls", "sa", "mc") == FALSE){
     stop("Wrong type")
 #    flag <- FALSE
   }
@@ -37,6 +37,15 @@ compare_contour<- function(df, L = 0.5,
       miss_gam_fit() -> fit[[j]]
       title <- "Missed on Swing Rate"
      if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
+    }
+  }
+  if (type == "mc"){
+    for(j in 1:N_df){
+      df[[j]] %>%
+        setup_swing() %>%
+        contact_gam_fit() -> fit[[j]]
+      title <- "Make Contact on Swing Rate"
+      if(missing(L) == TRUE) L <- seq(0, 1, by = 0.1)
     }
   }
   if (type == "cs"){
@@ -101,7 +110,7 @@ compare_contour<- function(df, L = 0.5,
   for(j in 1:N_df){
     df_c <- grid
     df_c$lp <- predict(fit[[j]], df_c)
-    if (type %in% c("ms", "cs", "h", "hr", "sw")){
+    if (type %in% c("ms", "cs", "h", "hr", "sw", "mc")){
     df_c$lp <- exp(df_c$lp) / (1 + exp(df_c$lp))
     }
     df_c$Group <- names(df)[j]

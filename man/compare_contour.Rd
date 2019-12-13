@@ -28,7 +28,7 @@
   }
 }
 \value{
-  Constructs 2 x 2 grid of filled contour plots of the variable (choices for type are called strike ("cs"), swing ("sw"), miss swing ("ms"), hit ("h"), home run ("hr"), launch angle ("la"), launch speed ("ls"), and spray angle ("sa"))
+  Constructs 2 x 2 grid of filled contour plots of the variable (choices for type are called strike ("cs"), swing ("sw"), make contact on  swing ("mc"), miss swing ("ms"), hit ("h"), home run ("hr"), launch angle ("la"), launch speed ("ls"), and spray angle ("sa"))
 }
 \author{
   Jim Albert

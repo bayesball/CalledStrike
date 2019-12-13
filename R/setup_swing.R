@@ -10,5 +10,6 @@ setup_swing <- function(sc){
     mutate(Miss = ifelse(description %in%
                 c("swinging_strike",
                  "swinging_strike_blocked"), 1, 0),
+           Contact = 1 - Miss,
            Count = paste(balls, strikes, sep="-"))
 }
