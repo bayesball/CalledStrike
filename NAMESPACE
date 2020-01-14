@@ -1,2 +1,2 @@
 exportPattern("^[[:alpha:]]+")
-importFrom("purrr", "map")
+import(ggplot2, dplyr)

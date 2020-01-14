@@ -126,12 +126,13 @@ compare_contour<- function(df, L = 0.5,
     y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
   )
   ggplot(df_p)  +
-      geom_contour_fill(aes(x=plate_x, y=plate_z,
-                       z=lp),
+      geom_contour_fill(aes(x=.data$plate_x,
+                            y=.data$plate_z,
+                            z=.data$lp),
                    breaks=c(L),
                    size=1.5) +
     scale_fill_distiller(palette="Spectral")  +
-      geom_path(aes(x, y), data=kZone,
+      geom_path(aes(.data$x, .data$y), data=kZone,
                 lwd=1, col="black") +
       xlim(-1.5, 1.5) +
       ylim(1.0, 4.0)  +

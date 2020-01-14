@@ -7,6 +7,6 @@ add_zone <- function(Color = "red"){
     x=c(inKzone, inKzone, outKzone, outKzone, inKzone),
     y=c(botKzone, topKzone, topKzone, botKzone, botKzone)
   )
-  geom_path(aes(x, y), data=kZone,
+  geom_path(aes(.data$x, .data$y), data=kZone,
               lwd=1, col=Color)
 }

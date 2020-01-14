@@ -108,10 +108,10 @@ compare_tile <- function(df,  type = "ms",
   )
   ggplot(df_p)  +
     geom_tile(data=df_p,
-              aes(x=plate_x, y=plate_z,
-                  fill= lp)) +
+              aes(x=.data$plate_x, y=.data$plate_z,
+                  fill= .data$lp)) +
     scale_fill_distiller(palette="Spectral")  +
-      geom_path(aes(x, y), data=kZone,
+      geom_path(aes(.data$x, .data$y), data=kZone,
                 lwd=1, col="red") +
       xlim(-1.5, 1.5) +
       ylim(1.0, 4.0)  +
