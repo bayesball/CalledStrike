@@ -1,2 +1,7 @@
 exportPattern("^[[:alpha:]]+")
-import(ggplot2, dplyr)
+import("ggplot2", "dplyr", "utils")
+importFrom("mgcv", "gam")
+importFrom("metR", "geom_contour_fill")
+importFrom("baseballr", "playerid_lookup", "scrape_statcast_savant")
+importFrom("stats", "predict")
+

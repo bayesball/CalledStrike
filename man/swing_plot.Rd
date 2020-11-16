@@ -19,7 +19,7 @@
   }
 }
 \value{
-  Constructs a tile plot of the called strike probability
+  Constructs a tile plot of the swing probability
 }
 \author{
   Jim Albert
