@@ -1,8 +1,7 @@
-miss_swing_plot <- function(data, title=""){
+miss_swing_plot <- function(data,
+                   title="Probability of Miss"){
   data %>%
     setup_swing() %>%
     miss_gam_fit() %>%
-    tile_plot_p() +
-    ggtitle(title) +
-    centertitle()
+    tile_plot(title)
 }

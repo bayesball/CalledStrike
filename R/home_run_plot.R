@@ -1,8 +1,7 @@
-home_run_plot <- function(data, title = ""){
+home_run_plot <- function(data,
+            title = "Probability of Home Run"){
   data %>%
     setup_inplay() %>%
     hr_h_gam_fit() %>%
-    tile_plot_p() +
-    ggtitle(title) +
-    centertitle()
+    tile_plot(title)
 }

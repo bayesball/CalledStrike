@@ -1,8 +1,7 @@
-ls_plot <- function(data, title = ""){
+ls_plot <- function(data,
+                    title = "Launch Velocity"){
   data %>%
     setup_inplay() %>%
     ls_gam_fit() %>%
-    tile_plot_m() +
-    ggtitle(title) +
-    centertitle()
+    tile_plot(title)
 }
