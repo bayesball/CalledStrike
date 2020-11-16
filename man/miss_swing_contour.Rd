@@ -8,7 +8,7 @@
   Constructs miss on swung balls contour graph
 }
 \usage{
-  miss_swing_contour(data, L)
+  miss_swing_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values of contour values
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{

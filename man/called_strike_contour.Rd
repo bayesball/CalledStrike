@@ -8,7 +8,7 @@
   Constructs called strike contour plot for a specific player
 }
 \usage{
-  called_strike_contour(data, L)
+  called_strike_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values of the contour lines
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{

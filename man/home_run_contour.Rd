@@ -8,7 +8,7 @@
   Constructs home run contour plot for a specific player
 }
 \usage{
-  home_run_contour(data, L)
+  home_run_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values for the contour lines
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{

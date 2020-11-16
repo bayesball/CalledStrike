@@ -8,7 +8,7 @@
   Constructs hit contour plot for a specific player
 }
 \usage{
-  hit_contour(data, L)
+  hit_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values for contour lines
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{

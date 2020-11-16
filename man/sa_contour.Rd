@@ -8,7 +8,7 @@
   Constructs spray angle contour graph
 }
 \usage{
-  sa_contour(data, L)
+  sa_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values for contour lines
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{

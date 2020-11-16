@@ -1,14 +1,14 @@
-\name{la_contour}
-\alias{la_contour}
+\name{woba_contour}
+\alias{woba_contour}
 
 \title{
-  Launch Angle Contour Plot
+  wOBA Contour Plot
 }
 \description{
-  Constructs launch angle contour graph
+  Constructs wOBA angle contour graph
 }
 \usage{
-  la_contour(data, L, title)
+  woba_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -18,7 +18,7 @@
     values for contour lines
   }
   \item{title}{
-    title of the graph
+    title of graph
   }
 }
 \value{

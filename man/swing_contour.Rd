@@ -8,7 +8,7 @@
   Constructs swing contour plot for a specific player
 }
 \usage{
-  swing_contour(data, L)
+  swing_contour(data, L, title)
 }
 \arguments{
   \item{data}{
@@ -16,6 +16,9 @@
   }
   \item{L}{
     values for contour lines
+  }
+  \item{title}{
+    title of the graph
   }
 }
 \value{
