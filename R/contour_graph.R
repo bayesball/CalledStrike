@@ -1,9 +1,6 @@
-contour_graph <- function(fit, L, title){
-  grid <- expand.grid(plate_x = seq(-1.5, 1.5, length=50),
-                      plate_z = seq(1, 4, length=50))
-  grid$lp <- predict(fit, grid, type = "response")
+contour_graph <- function(df, L, title){
 
-  ggplot(grid)  +
+  ggplot(df)  +
     geom_contour_fill(aes(x=plate_x,
                           y=plate_z,
                           z=lp),

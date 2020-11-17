@@ -1,7 +1,31 @@
-contact_swing_plot <- function(data,
+contact_swing_plot <- function(df,
                    title="Probability of Contact"){
-  data %>%
-    setup_swing() %>%
-    contact_gam_fit() %>%
-    tile_plot(title)
+
+  if(is.data.frame(df) == TRUE) {
+    df <- list(df)
+    names(df) <- "Group"
+  }
+  N_df <- length(df)
+  if(is.list(df) == TRUE){
+    if(length(names(df)) == 0){
+      names(df) <- paste("Group", 1:N_df)
+    }
+  }
+  df_p <- NULL
+  for(j in 1:N_df){
+    df[[j]] %>%
+      setup_swing() %>%
+      contact_gam_fit() %>%
+      grid_predict() %>%
+      mutate(Group = names(df)[j]) -> df_c
+    df_p <- rbind(df_p, df_c)
+  }
+
+  if(N_df == 1){
+    tile_plot(df_p, title)
+  } else {
+    tile_plot(df_p, title) +
+      facet_wrap(~ Group, ncol = 2)
+  }
+
 }
