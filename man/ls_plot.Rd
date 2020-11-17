@@ -8,11 +8,11 @@
   Constructs launch speed graph
 }
 \usage{
-  ls_plot(data, title)
+  ls_plot(df, title = "Launch Velocity")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

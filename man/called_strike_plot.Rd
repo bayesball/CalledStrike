@@ -8,11 +8,11 @@
   Constructs called strike plot for a specific player
 }
 \usage{
-  called_strike_plot(data, title)
+  called_strike_plot(df, title = "Probability of Called Strike")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

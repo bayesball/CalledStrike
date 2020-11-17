@@ -8,11 +8,11 @@
   Constructs spray angle graph
 }
 \usage{
-  sa_plot(data, title)
+  sa_plot(df, title = "Spray Angle")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

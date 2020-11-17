@@ -8,11 +8,11 @@
   Constructs hit contour plot for a specific player
 }
 \usage{
-  hit_contour(data, L, title)
+  hit_contour(df, L = seq(0, 1, by = 0.1), title)
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for contour lines

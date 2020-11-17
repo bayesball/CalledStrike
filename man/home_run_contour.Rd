@@ -8,11 +8,11 @@
   Constructs home run contour plot for a specific player
 }
 \usage{
-  home_run_contour(data, L, title)
+  home_run_contour(df, L = seq(0.04, 0.24, by = 0.04), title = "Probability of Home Run")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for the contour lines

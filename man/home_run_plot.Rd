@@ -8,11 +8,11 @@
   Constructs home run plot for a specific player
 }
 \usage{
-  home_run_plot(data, title)
+  home_run_plot(df, title = "Probability of Home Run")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

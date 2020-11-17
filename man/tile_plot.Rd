@@ -8,11 +8,11 @@
   Constructs heat map plot from output from an generalized additive fit
 }
 \usage{
-  tile_plot(fit, title)
+  tile_plot(df, title)
 }
 \arguments{
-  \item{fit}{
-    saved gam fit
+  \item{df}{
+    data frame containing Statcast and predicted values
   }
   \item{title}{
     title for the graph

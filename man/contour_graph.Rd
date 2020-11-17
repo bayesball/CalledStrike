@@ -8,11 +8,11 @@
   Constructs filled contour graph
 }
 \usage{
-  contour_graph(fit, L, title)
+  contour_graph(df, L, title)
 }
 \arguments{
-  \item{fit}{
-    object from a GAM fit
+  \item{df}{
+    data frame containing Statcast and prediction variables
   }
   \item{L}{
     vector of values for contour lines

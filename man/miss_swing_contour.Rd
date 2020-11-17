@@ -8,11 +8,11 @@
   Constructs miss on swung balls contour graph
 }
 \usage{
-  miss_swing_contour(data, L, title)
+  miss_swing_contour(df, L = seq(0, 1, by = 0.1), title = "Probability of Miss")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values of contour values

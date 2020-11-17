@@ -8,11 +8,11 @@
   Constructs wOBA graph
 }
 \usage{
-  woba_plot(data, title)
+  woba_plot(df, title = "Average wOBA")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

@@ -8,11 +8,11 @@
   Constructs wOBA angle contour graph
 }
 \usage{
-  woba_contour(data, L, title)
+  woba_contour(df, L = seq(0, 0.8, by = 0.05), title = "Average wOBA")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for contour lines

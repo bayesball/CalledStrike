@@ -5,14 +5,14 @@
   Swing Plot
 }
 \description{
-  Constructs swing plot for a specific player
+  Constructs swing plot
 }
 \usage{
-  swing_plot(data, title)
+  swing_plot(df, title = "Probability of Swing")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

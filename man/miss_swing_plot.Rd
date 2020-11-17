@@ -8,11 +8,11 @@
   Constructs miss on swung balls graph
 }
 \usage{
-  miss_swing_plot(data, title)
+  miss_swing_plot(df, title = "Probability of Miss")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

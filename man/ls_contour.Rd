@@ -8,11 +8,11 @@
   Constructs launch speed contour graph
 }
 \usage{
-  ls_contour(data, L, title)
+  ls_contour(df, L = seq(75, 105, 5), title = "Launch Velocity")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for contour lines

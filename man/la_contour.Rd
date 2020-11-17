@@ -8,11 +8,11 @@
   Constructs launch angle contour graph
 }
 \usage{
-  la_contour(data, L, title)
+  la_contour(df, L = seq(-10, 40, 10), title = "Launch Angle")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for contour lines

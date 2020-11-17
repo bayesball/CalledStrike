@@ -8,11 +8,11 @@
   Constructs hit plot for a specific player
 }
 \usage{
-  hit_plot(data, title)
+  hit_plot(df, title = "Probability of a Hit")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

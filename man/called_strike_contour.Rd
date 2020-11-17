@@ -8,11 +8,11 @@
   Constructs called strike contour plot for a specific player
 }
 \usage{
-  called_strike_contour(data, L, title)
+  called_strike_contour(df, L = c(0.5, 0.9), title = "Probability of Called Strike")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values of the contour lines

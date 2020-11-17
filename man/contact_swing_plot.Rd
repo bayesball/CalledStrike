@@ -8,11 +8,11 @@
   Constructs contact on swung balls graph
 }
 \usage{
-  contact_swing_plot(data, title)
+  contact_swing_plot(df, title = "Probability of Contact")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

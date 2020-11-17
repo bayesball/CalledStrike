@@ -8,11 +8,11 @@
   Constructs launch angle graph
 }
 \usage{
-  la_plot(data, title)
+  la_plot(df, title = "Launch Angle")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{title}{
     title for the graph

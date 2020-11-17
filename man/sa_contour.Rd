@@ -8,11 +8,11 @@
   Constructs spray angle contour graph
 }
 \usage{
-  sa_contour(data, L, title)
+  sa_contour(df, L = seq(-40, 40, by = 10), title = "Spray Angle")
 }
 \arguments{
-  \item{data}{
-    data frame containing Statcast data
+  \item{df}{
+    data frame or list containing Statcast data
   }
   \item{L}{
     values for contour lines
