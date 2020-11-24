@@ -4,10 +4,10 @@ Package for manipulating, modeling, and visualizing Statcast pitching data.
 
 To install:
 
-library(devtools)
+library(remotes)
 
 install_github("bayesball/CalledStrike")
 
-Depreciated functions:
+A general description of the package can be found at:
 
-cplot, cplot2, cplot3, gam_fit, gam_fit2, gam_fit3
+https://bayesball.github.io/Intro_to_CalledStrike_Package.html
