@@ -2,6 +2,8 @@
 
 Package for manipulating, modeling, and visualizing Statcast pitching data.
 
+![GitHub Logo](/images/freeman.png)
+
 To install:
 
 library(remotes)
