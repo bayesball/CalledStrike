@@ -5,7 +5,12 @@ globalVariables(c("playerid_lookup", "mlbam_id",
                   "hc_x", "hc_y",
                   "estimated_ba_using_speedangle",
                   "estimated_woba_using_speedangle",
+                  "pitch_type", "Pitch_Type",
                   "scrape_statcast_savant",
                   "p", "map", "binomial",
                   "bbref_id", "description",
-                  "Miss", "x", "y", "Probability"))
+                  "Miss", "x", "y", "Probability",
+                  "player_name", "launch_angle",
+                  "launch_speed", "game_year",
+                  "stand", "woba_value",
+                  "p_throws"))
