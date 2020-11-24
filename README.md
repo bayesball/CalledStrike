@@ -1,6 +1,6 @@
 # CalledStrike
 
-Package for manipulating, modeling, and visualizing Statcast pitching data.
+R package for manipulating, modeling, and visualizing Statcast pitching data.
 
 ![GitHub Logo](/images/freeman.png)
 
