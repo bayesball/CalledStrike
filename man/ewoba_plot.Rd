@@ -8,7 +8,7 @@
   Constructs expected wOBA plot for a specific player
 }
 \usage{
-  ewoba_plot(df, title = "Expected wOBA")
+  ewoba_plot(df, title = "Expected wOBA", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

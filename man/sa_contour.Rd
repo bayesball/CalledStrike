@@ -8,7 +8,7 @@
   Constructs spray angle contour graph
 }
 \usage{
-  sa_contour(df, L = seq(-40, 40, by = 10), title = "Spray Angle")
+  sa_contour(df, L = seq(-40, 40, by = 10), title = "Spray Angle", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

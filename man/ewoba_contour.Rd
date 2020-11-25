@@ -8,7 +8,7 @@
   Constructs expected wOBA contour plot for a specific player based on launch speed and launch angle
 }
 \usage{
-  ewoba_contour(df, L = seq(0, 1, by = 0.02), title)
+  ewoba_contour(df, L = seq(0, 1, by = 0.02), title = "Expected wOBA", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

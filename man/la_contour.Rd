@@ -8,7 +8,7 @@
   Constructs launch angle contour graph
 }
 \usage{
-  la_contour(df, L = seq(-10, 40, 10), title = "Launch Angle")
+  la_contour(df, L = seq(-10, 40, 10), title = "Launch Angle", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

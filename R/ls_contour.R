@@ -1,5 +1,6 @@
 ls_contour <- function(df, L = seq(75, 105, 5),
-                       title = "Launch Velocity"){
+                       title = "Launch Velocity",
+                       NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -25,6 +26,6 @@ ls_contour <- function(df, L = seq(75, 105, 5),
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

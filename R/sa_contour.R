@@ -1,6 +1,7 @@
 sa_contour <- function(df,
                        L = seq(-40, 40, by = 10),
-                  title = "Spray Angle"){
+                  title = "Spray Angle",
+                  NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -26,7 +27,7 @@ sa_contour <- function(df,
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }
 

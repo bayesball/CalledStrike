@@ -8,7 +8,7 @@
   Constructs launch angle graph
 }
 \usage{
-  la_plot(df, title = "Launch Angle")
+  la_plot(df, title = "Launch Angle", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

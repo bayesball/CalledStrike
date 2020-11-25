@@ -1,5 +1,6 @@
 woba_contour <- function(df, L = seq(0, .8, by = 0.05),
-                       title = "Average wOBA"){
+                       title = "Average wOBA",
+                       NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -25,6 +26,6 @@ woba_contour <- function(df, L = seq(0, .8, by = 0.05),
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

@@ -8,7 +8,8 @@
   Constructs expected hit plot for a specific player
 }
 \usage{
-  ehit_plot(df, title = "Expected Batting Average")
+  ehit_plot(df, title = "Expected Batting Average",
+  NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +17,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

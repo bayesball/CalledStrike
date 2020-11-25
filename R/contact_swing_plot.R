@@ -1,5 +1,6 @@
 contact_swing_plot <- function(df,
-                   title="Probability of Contact"){
+                   title="Probability of Contact",
+                   NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -25,7 +26,7 @@ contact_swing_plot <- function(df,
     tile_plot(df_p, title)
   } else {
     tile_plot(df_p, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 
 }

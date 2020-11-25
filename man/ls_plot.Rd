@@ -8,7 +8,7 @@
   Constructs launch speed graph
 }
 \usage{
-  ls_plot(df, title = "Launch Velocity")
+  ls_plot(df, title = "Launch Velocity", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

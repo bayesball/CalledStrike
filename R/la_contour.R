@@ -1,5 +1,6 @@
 la_contour <- function(df, L = seq(-10, 40, 10),
-                       title = "Launch Angle"){
+                       title = "Launch Angle",
+                       NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -25,6 +26,6 @@ la_contour <- function(df, L = seq(-10, 40, 10),
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

@@ -1,6 +1,7 @@
 home_run_contour <- function(df,
                L = seq(.04, .24, by = 0.04),
-               title = "Probability of Home Run"){
+               title = "Probability of Home Run",
+               NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -26,6 +27,6 @@ home_run_contour <- function(df,
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

@@ -8,7 +8,7 @@
   Constructs contact on swung balls graph
 }
 \usage{
-  contact_swing_plot(df, title = "Probability of Contact")
+  contact_swing_plot(df, title = "Probability of Contact", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

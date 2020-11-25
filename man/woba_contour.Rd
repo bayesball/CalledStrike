@@ -8,7 +8,7 @@
   Constructs wOBA angle contour graph
 }
 \usage{
-  woba_contour(df, L = seq(0, 0.8, by = 0.05), title = "Average wOBA")
+  woba_contour(df, L = seq(0, 0.8, by = 0.05), title = "Average wOBA", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

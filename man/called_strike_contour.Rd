@@ -8,7 +8,7 @@
   Constructs called strike contour plot for a specific player
 }
 \usage{
-  called_strike_contour(df, L = c(0.5, 0.9), title = "Probability of Called Strike")
+  called_strike_contour(df, L = c(0.5, 0.9), title, NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

@@ -8,7 +8,7 @@
   Constructs wOBA graph
 }
 \usage{
-  woba_plot(df, title = "Average wOBA")
+  woba_plot(df, title = "Average wOBA", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

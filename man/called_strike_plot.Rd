@@ -8,7 +8,7 @@
   Constructs called strike plot for a specific player
 }
 \usage{
-  called_strike_plot(df, title = "Probability of Called Strike")
+  called_strike_plot(df, title = "Probability of Called Strike", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

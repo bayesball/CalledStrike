@@ -8,7 +8,7 @@
   Constructs expected hit contour plot for a specific player based on launch speed and launch angle
 }
 \usage{
-  ehit_contour(df, L = seq(0, 1, by = 0.02), title)
+  ehit_contour(df, L = seq(0, 1, by = 0.02), title = "Expected Batting Average", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

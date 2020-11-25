@@ -8,7 +8,7 @@
   Constructs home run contour plot for a specific player
 }
 \usage{
-  home_run_contour(df, L = seq(0.04, 0.24, by = 0.04), title = "Probability of Home Run")
+  home_run_contour(df, L = seq(0.04, 0.24, by = 0.04), title, NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

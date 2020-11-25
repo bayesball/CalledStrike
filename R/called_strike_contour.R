@@ -1,6 +1,7 @@
 called_strike_contour <- function(df,
                                   L = c(0.5, 0.9),
-              title = "Probability of Called Strike"){
+              title = "Probability of Called Strike",
+              NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -26,7 +27,7 @@ called_strike_contour <- function(df,
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }
 

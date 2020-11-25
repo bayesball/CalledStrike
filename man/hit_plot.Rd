@@ -8,7 +8,7 @@
   Constructs hit plot for a specific player
 }
 \usage{
-  hit_plot(df, title = "Probability of a Hit")
+  hit_plot(df, title = "Probability of a Hit", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

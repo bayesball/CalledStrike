@@ -8,7 +8,7 @@
   Constructs launch speed contour graph
 }
 \usage{
-  ls_contour(df, L = seq(75, 105, 5), title = "Launch Velocity")
+  ls_contour(df, L = seq(75, 105, 5), title = "Launch Velocity", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

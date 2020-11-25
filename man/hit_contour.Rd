@@ -8,7 +8,7 @@
   Constructs hit contour plot for a specific player
 }
 \usage{
-  hit_contour(df, L = seq(0, 1, by = 0.1), title)
+  hit_contour(df, L = seq(0, 1, by = 0.1), title = "Probability of a Hit", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -19,6 +19,9 @@
   }
   \item{title}{
     title of the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

@@ -8,7 +8,7 @@
   Constructs home run plot for a specific player
 }
 \usage{
-  home_run_plot(df, title = "Probability of Home Run")
+  home_run_plot(df, title = "Probability of Home Run", NCOL = 2)
 }
 \arguments{
   \item{df}{
@@ -16,6 +16,9 @@
   }
   \item{title}{
     title for the graph
+  }
+  \item{NCOL}{
+    number of columns in multipanel display
   }
 }
 \value{

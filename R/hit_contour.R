@@ -1,6 +1,7 @@
 hit_contour <- function(df,
                         L = seq(0, 1, by = 0.1),
-                        title = "Probability of a Hit"){
+                        title = "Probability of a Hit",
+                        NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -26,6 +27,6 @@ hit_contour <- function(df,
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

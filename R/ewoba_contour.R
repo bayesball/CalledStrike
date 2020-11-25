@@ -1,5 +1,6 @@
 ewoba_contour <- function(df, L = seq(0, 1, by = 0.02),
-                       title = "Expected wOBA"){
+                       title = "Expected wOBA",
+                       NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -27,6 +28,6 @@ ewoba_contour <- function(df, L = seq(0, 1, by = 0.02),
     contour_graph(df_p, L, title)
   } else {
     contour_graph(df_p, L, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 }

@@ -1,5 +1,6 @@
 woba_plot <- function(df,
-                    title = "Average wOBA"){
+                    title = "Average wOBA",
+                    NCOL = 2){
 
   if(is.data.frame(df) == TRUE) {
     df <- list(df)
@@ -25,7 +26,7 @@ woba_plot <- function(df,
     tile_plot(df_p, title)
   } else {
     tile_plot(df_p, title) +
-      facet_wrap(~ Group, ncol = 2)
+      facet_wrap(~ Group, ncol = NCOL)
   }
 
 }
