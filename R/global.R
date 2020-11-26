@@ -13,4 +13,5 @@ globalVariables(c("playerid_lookup", "mlbam_id",
                   "player_name", "launch_angle",
                   "launch_speed", "game_year",
                   "stand", "woba_value",
-                  "p_throws"))
+                  "p_throws",
+                  "Count", "Count_Type"))
