@@ -1,4 +1,4 @@
-setup_pitchtype <- function(sc){
+split_pitchtype <- function(sc){
   sc %>% mutate(Pitch_Type =
                   ifelse(pitch_type %in%
                         c("FC", "FF", "FS", "FT", "SI"),

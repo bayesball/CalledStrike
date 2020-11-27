@@ -1,5 +1,5 @@
-\name{setup_count}
-\alias{setup_count}
+\name{split_count}
+\alias{split_count}
 
 \title{
   Partitions Statcast data frame by count
@@ -8,7 +8,7 @@
   Partitions Statcast data frame by count type
 }
 \usage{
-  setup_count(sc)
+  split_count(sc)
 }
 \arguments{
   \item{sc}{

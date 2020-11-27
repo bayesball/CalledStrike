@@ -1,5 +1,5 @@
-\name{setup_LR_pitchtype}
-\alias{setup_LR_pitchtype}
+\name{split_LR_pitchtype}
+\alias{split_LR_pitchtype}
 
 \title{
   Partitions Statcast data frame by pitcher side and pitch type
@@ -8,7 +8,7 @@
   Partitions Statcast data frame by pitcher side and pitch type
 }
 \usage{
-  setup_LR_pitchtype(sc)
+  split_LR_pitchtype(sc)
 }
 \arguments{
   \item{sc}{

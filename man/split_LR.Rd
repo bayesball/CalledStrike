@@ -1,5 +1,5 @@
-\name{setup_LR}
-\alias{setup_LR}
+\name{split_LR}
+\alias{split_LR}
 
 \title{
   Partitions Statcast data frame by pitcher side
@@ -8,7 +8,7 @@
   Partitions Statcast data frame by pitcher side
 }
 \usage{
-  setup_LR(sc)
+  split_LR(sc)
 }
 \arguments{
   \item{sc}{

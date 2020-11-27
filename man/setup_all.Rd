@@ -5,7 +5,7 @@
   Sets up Statcast data to define new variables
 }
 \description{
-  Sets up Statcast data to define Swing and Count
+  Sets up Statcast data to define Swing, Count and Pitch Type
 }
 \usage{
   setup_all(sc)
@@ -16,7 +16,7 @@
   }
 }
 \value{
-  Statcast data frame for all pitches with new variables Swing and Count
+  Statcast data frame for all pitches with new variables Swing, Count, Count_Type and Pitch_Type
 }
 \author{
   Jim Albert

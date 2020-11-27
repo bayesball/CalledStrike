@@ -1,4 +1,4 @@
-setup_count <- function(sc){
+split_count <- function(sc){
   sc %>%
     mutate(Count = paste(balls, strikes, sep="-"),
            Count_Type = ifelse(Count %in%
