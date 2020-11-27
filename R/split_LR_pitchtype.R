@@ -14,9 +14,9 @@ split_LR_pitchtype <- function(sc){
               split(sc_LR[[2]],
                     sc_LR[[2]]$Pitch_Type))
 
-  names(sc_new) <- c("1 - Left - Fastball",
-                     "3 - Left - Off-Speed",
-                     "2 - Right - Fastball",
-                     "4 - Right - Off-Speed")
+  names(sc_new) <- c("1 - p_throws: L, Fastball",
+                     "3 - p_throws: L, Off-Speed",
+                     "2 - p_throws: R, Fastball",
+                     "4 - p_throws: R, Off-Speed")
   sc_new
 }

@@ -1,3 +1,6 @@
 split_LR <- function(sc){
-  split(sc, sc$p_throws)
+  scnew <- split(sc, sc$p_throws)
+  names(scnew) <- c("p_throws: L",
+                    "p_throws: R")
+  scnew
 }
