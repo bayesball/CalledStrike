@@ -17,4 +17,5 @@ https://bayesball.github.io/Intro_to_CalledStrike_Package.html
 When the package is loaded, can see graphs for some sample data:
 
 library(CalledStrike)
+
 ShinyDemo()
