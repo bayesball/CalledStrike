@@ -51,7 +51,7 @@ ui <- fluidPage(
 
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot", height="450px")
+      plotOutput("distPlot", height="550px")
     )
   ))
 
