@@ -42,20 +42,23 @@ ui <- fluidPage(
                     "tile")
       ),
       sliderInput("dL", "Choose Contour Parameter:",
-                   0.0, min = -1.5, max = 1.5)
+                   0.0, min = -1.5, max = 1.5),
+      tags$head(
+        tags$style(HTML('#goButton{background-color:orange}'))
+      ),
+      actionButton("goButton", "UPDATE PLOT")
     ),
 
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot", height="500px")
+      plotOutput("distPlot", height="450px")
     )
   ))
 
 # Define server logic ----
 server <- function(input, output) {
 
-    output$distPlot <- renderPlot({
-
+  data <- eventReactive(input$goButton, {
       sc_sample$Player <-
           as.character(sc_sample$player_name)
       sc <- filter(sc_sample,
@@ -68,115 +71,118 @@ server <- function(input, output) {
           3
         }
       }
-
     if(input$graphtype == "contour"){
       if(input$measure == "called strike"){
-        called_strike_contour(d,
+        dplot <- called_strike_contour(d,
                    L = seq(0.1, 0.9,
                            by = 0.1 * exp(input$dL)),
                    NCOL = n(length(input$players)))
       } else if (input$measure == "miss"){
-        miss_swing_contour(d,
+        dplot <- miss_swing_contour(d,
                      L = seq(0, 1,
                         by = 0.05 * exp(input$dL)),
                      NCOL = n(length(input$players)))
       } else if (input$measure == "batting average"){
-        hit_contour(d,
+        dplot <- hit_contour(d,
                     L = seq(0, 1,
                         by = 0.05 * exp(input$dL)),
                     NCOL = n(length(input$players)))
       } else if (input$measure == "wOBA"){
-        woba_contour(d,
+        dplot <- woba_contour(d,
                     L = seq(0, 1,
                         by = 0.05 * exp(input$dL)),
                     NCOL = n(length(input$players)))
       } else if (input$measure == "home run"){
-        home_run_contour(d,
+        dplot <- home_run_contour(d,
                     L = seq(0, 1,
                         by = 0.02 * exp(input$dL)),
                     NCOL = n(length(input$players)))
       } else if (input$measure == "swing"){
-        swing_contour(d,
+        dplot <- swing_contour(d,
                       L = seq(0, 1,
                            by = 0.05 * exp(input$dL)),
                       NCOL = n(length(input$players)))
       } else if (input$measure == "contact"){
-        contact_swing_contour(d,
+        dplot <- contact_swing_contour(d,
                       L = seq(0, 1,
                           by = 0.05 * exp(input$dL)),
                       NCOL = n(length(input$players)))
       } else if (input$measure == "in-play"){
-        inplay_swing_contour(d,
+        dplot <- inplay_swing_contour(d,
                       L = seq(0, 1,
                           by = 0.05 * exp(input$dL)),
                       NCOL = n(length(input$players)))
       } else if (input$measure == "launch speed"){
-        ls_contour(d,
+        dplot <- ls_contour(d,
                    L = seq(50, 110,
                            by = 5 * exp(input$dL)),
                    NCOL = n(length(input$players)))
       } else if (input$measure == "launch angle"){
-        la_contour(d,
+        dplot <- la_contour(d,
                    L = seq(-10, 40,
                            by = 10 * exp(input$dL)),
                    NCOL = n(length(input$players)))
       } else if (input$measure == "spray angle"){
-        sa_contour(d,
+        dplot <- sa_contour(d,
                    L = seq(-40, 40,
                            by = 10 * exp(input$dL)),
                    NCOL = n(length(input$players)))
       } else if (input$measure == "expected wOBA"){
-        ewoba_contour(d,
+        dplot <- ewoba_contour(d,
                       L = seq(0, 1,
                       by = 0.05 * exp(input$dL)),
                       NCOL = n(length(input$players)))
       } else if (input$measure == "expected BA"){
-        ehit_contour(d,
+        dplot <- ehit_contour(d,
                      L = seq(0, 1,
                     by = 0.05 * exp(input$dL)),
                     NCOL = n(length(input$players)))
       }} else if(input$graphtype == "tile"){
         if(input$measure == "called strike"){
-          called_strike_plot(d,
+          dplot <- called_strike_plot(d,
                     NCOL = n(length(input$players)))
         } else if (input$measure == "swing"){
-          swing_plot(d,
+          dplot <- swing_plot(d,
                      NCOL = n(length(input$players)))
         } else if (input$measure == "contact"){
-          contact_swing_plot(d,
+          dplot <- contact_swing_plot(d,
                     NCOL = n(length(input$players)))
         } else if (input$measure == "miss"){
-          miss_swing_plot(d,
+          dplot <- miss_swing_plot(d,
                     NCOL = n(length(input$players)))
         } else if (input$measure == "batting average"){
-          hit_plot(d,
+          dplot <- hit_plot(d,
                    NCOL = n(length(input$players)))
         } else if (input$measure == "home run"){
-          home_run_plot(d,
+          dplot <- home_run_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "wOBA"){
-          woba_plot(d,
+          dplot <- woba_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "in-play"){
-          inplay_swing_plot(d,
+          dplot <- inplay_swing_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "launch speed"){
-          ls_plot(d,
+          dplot <- ls_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "launch angle"){
-          la_plot(d,
+          dplot <- la_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "spray angle"){
-          sa_plot(d,
+          dplot <- sa_plot(d,
                   NCOL = n(length(input$players)))
         } else if (input$measure == "expected wOBA"){
-          ewoba_plot(d,
+          dplot <- ewoba_plot(d,
                      NCOL = n(length(input$players)))
         } else if (input$measure == "expected BA"){
-          ehit_plot(d,
+          dplot <-ehit_plot(d,
                     NCOL = n(length(input$players)))
         }}
+      dplot
    })
+  output$distPlot <- renderPlot({
+    data()
+  })
 }
 
 # Run the app ----
