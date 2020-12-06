@@ -4,9 +4,11 @@ R package for manipulating, modeling, and visualizing Statcast pitching data.
 
 ![GitHub Logo](/images/freeman.png)
 
-To install:
+To install (recommended to first install baseballr package):
 
 library(remotes)
+
+install_github("BillPetti/baseballr")
 
 install_github("bayesball/CalledStrike")
 
