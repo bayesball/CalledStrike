@@ -2,10 +2,6 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(readr)
-library(baseballr)
-
-#pitchers <- read_csv("2019pitchers.csv")
-#sc <- read_csv("sc2019_20.csv")
 
 ui <- fluidPage(
   fluidRow(
@@ -50,12 +46,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   options(shiny.maxRequestSize=30*1024^2)
-  get_id <- function(name){
-    names <- unlist(strsplit(name, " "))
-    playerid_lookup(last_name = names[2],
-                    first_name = names[1]) %>%
-      dplyr::select(mlbam_id) %>% top_n(-1) %>% pull()
-  }
+
   add_zone <- function(Color = "red"){
     topKzone <- 3.5
     botKzone <- 1.6
@@ -73,7 +64,8 @@ server <- function(input, output, session) {
                                      name = "",
                                      side = "R",
                                      ptype = "Fastball",
-                                     count_v = cts){
+                                     count_v = cts,
+                                     NCOL = 2){
 
     d %>%
       mutate(PitchType = ifelse(pitch_type %in%
@@ -95,7 +87,7 @@ server <- function(input, output, session) {
       xlim(-2.5, 2.5) +
       ylim(0, 5) +
       theme(legend.position = "none") +
-      facet_wrap(~ TheCount, ncol = 2) +
+      facet_wrap(~ TheCount, ncol = NCOL) +
       theme(text=element_text(size=18)) +
       ggtitle(title) +
       coord_equal() +
@@ -108,13 +100,15 @@ server <- function(input, output, session) {
     pid <- pitchers_2019 %>%
       filter(Name == input$name) %>%
       select(SC_id) %>% pull()
-
+   N <- length(input$counts)
+   NCOL <- ifelse(N <= 4, 2, 3)
     filled_contour_compare(sc_pitchers_2019,
                            pid,
                            input$name,
                            input$side,
                            input$ptype,
-                           input$counts)
+                           input$counts,
+                           NCOL)
   })
   output$mplot <- renderPlot({
     data()
