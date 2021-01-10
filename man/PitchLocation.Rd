@@ -2,10 +2,10 @@
 \alias{PitchLocation}
 
 \title{
-  Shiny App to Illustrate Zone Visualizations
+  Shiny App to Illustrate Pitching Locations
 }
 \description{
-  Shiny app to illustrate locations of pitches on specific counts
+  Shiny app to illustrate locations of pitches for group of counts
 }
 \usage{
   PitchLocation()

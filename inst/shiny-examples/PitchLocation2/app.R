@@ -67,7 +67,7 @@ server <- function(input, output, session) {
     geom_path(aes(.data$x, .data$y), data=kZone,
               lwd=1, col=Color)
   }
-  filled_contour_compare <- function(d,
+  location_count_compare <- function(d,
                                      Pitcher = pitch_id,
                                      name = "",
                                      side = "R",
@@ -116,7 +116,7 @@ server <- function(input, output, session) {
     N <- length(input$counts)
     NCOL <- ifelse(N <= 4, 2, 3)
     pid <- get_id(input$name)
-    filled_contour_compare(df,
+    location_count_compare(df,
                            pid,
                            input$name,
                            input$side,
