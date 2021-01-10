@@ -1,13 +1,14 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
-library(readr)
 
 ui <- fluidPage(
   fluidRow(
     column(4, wellPanel(
-     selectInput("name", "Select 2019 Pitcher:",
-                  pitchers_2019$Name),
+      fileInput("file1", "Read in Statcast CSV File",
+                accept = ".csv"),
+      checkboxInput("header", "Header", TRUE),
+      textInput("name", "Pitcher Name:", value = ""),
       radioButtons("side", "Batter Side:",
              c("L", "R"),
              inline = TRUE),
@@ -46,7 +47,14 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   options(shiny.maxRequestSize=30*1024^2)
-
+  get_id <- function(name){
+    names <- unlist(strsplit(name, " "))
+    chadwick %>%
+    filter(name_last == names[2],
+           name_first == names[1]) %>%
+      dplyr::select(key_mlbam) %>%
+      top_n(-1) %>% pull()
+  }
   add_zone <- function(Color = "red"){
     topKzone <- 3.5
     botKzone <- 1.6
@@ -95,14 +103,20 @@ server <- function(input, output, session) {
                                       size = 24,
                                       hjust = 0.5, vjust = 0.8, angle = 0))
   }
+  the_data <- reactive({
+    file <- input$file1
+    ext <- tools::file_ext(file$datapath)
+    req(file)
+    validate(need(ext == "csv", "Please upload a csv file"))
+    read.csv(file$datapath, header = input$header)
+  })
 
   data <- eventReactive(input$goButton, {
-    pid <- pitchers_2019 %>%
-      filter(Name == input$name) %>%
-      select(SC_id) %>% pull()
-   N <- length(input$counts)
-   NCOL <- ifelse(N <= 4, 2, 3)
-    filled_contour_compare(sc_pitchers_2019,
+    df <- the_data()
+    N <- length(input$counts)
+    NCOL <- ifelse(N <= 4, 2, 3)
+    pid <- get_id(input$name)
+    filled_contour_compare(df,
                            pid,
                            input$name,
                            input$side,
