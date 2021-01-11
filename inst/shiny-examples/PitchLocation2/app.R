@@ -52,8 +52,8 @@ server <- function(input, output, session) {
     chadwick %>%
     filter(name_last == names[2],
            name_first == names[1]) %>%
-      dplyr::select(key_mlbam) %>%
-      top_n(-1) %>% pull()
+      top_n(-1) %>%
+         pull(key_mlbam)
   }
   add_zone <- function(Color = "red"){
     topKzone <- 3.5

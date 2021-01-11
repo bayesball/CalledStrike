@@ -99,7 +99,7 @@ server <- function(input, output, session) {
   data <- eventReactive(input$goButton, {
     pid <- pitchers_2019 %>%
       filter(Name == input$name) %>%
-      select(SC_id) %>% pull()
+      pull(SC_id)
    N <- length(input$counts)
    NCOL <- ifelse(N <= 4, 2, 3)
     location_count_compare(sc_pitchers_2019,
