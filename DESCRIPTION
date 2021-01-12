@@ -3,6 +3,8 @@ Type: Package
 Title: Functions for Graphing Statcast Data
 Version: 0.5.2
 Author: Jim Albert
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown
 Imports:  ggplot2, shiny, dplyr, baseballr, mgcv, metR
 Maintainer: Jim Albert <albert@bgsu.edu>
 URL: https://github.com/bayesball/CalledStrike

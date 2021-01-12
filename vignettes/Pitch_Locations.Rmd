@@ -1,0 +1,86 @@
+---
+title: "Plot Location Graphs"
+author: "Jim Albert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Plot Location Graphs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(CalledStrike)
+library(dplyr)
+```
+
+#### Introduction
+
+There are three functions for visualizing pitch locations.
+
+- The function ```location_compare()``` will graph the pitch location for a data frame or list of data frames.
+
+- The function ```location_count()``` will show the locations of pitches for a specific pitcher on a particular count.
+
+- The function ```location_count_compare()``` will graph the pitch locations for a specific pitcher for several values of the count.
+
+#### Data
+
+The package includes the dataset sc_pitchers_2019 that contains Statcast data for 20 pitchers for the 2019 season.
+
+#### Pitch Locations for a List
+
+Suppose we want to compare the locations of the fastballs thrown by Aaron Nola and Trevor Bauer.  
+
+I find the subset of data I need and then create a list dividing the data by pitcher.
+
+```{r}
+d <- filter(sc_pitchers_2019, 
+            pitcher %in% c(605400, 545333),
+            pitch_type == "FF")
+ds <- split(d, d$pitcher)
+names(ds) <- c("Bauer", "Nola")
+```
+
+Now we can construct the graph.
+
+```{r}
+location_compare(ds)
+```
+
+
+#### Pitch Locations for a Specific Count
+
+Suppose we want to look at the locations of Aaron Nola’s pitches on a 0-0 count. I can find Nola’s MLBAM id number by use of the chadwick dataset (also included in the package) that contains the id numbers for all players.
+
+
+```{r}
+chadwick %>% 
+  filter(name_last == "Nola", name_first == "Aaron")
+```
+
+To produce the graph, type
+
+```{r}
+location_count(sc_pitchers_2019, 
+               605400, "Aaron Nola", "0-0")
+```
+
+#### Pitch Locations Across a Group of Counts
+
+Suppose we want to compare Nola's pitch locations across the counts "0-0", "1-0", "0-1", "0-2"
+
+```{r}
+location_count_compare(sc_pitchers_2019, 
+               605400, "Aaron Nola", 
+               "R", "Offspeed", 
+               c("0-0", "1-0", "0-1", "0-2"))
+```
+
