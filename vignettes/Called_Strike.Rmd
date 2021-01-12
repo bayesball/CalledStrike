@@ -1,0 +1,127 @@
+---
+title: "Called Strike Package"
+author: "Jim Albert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Called Strike Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+### Introduction
+
+The ```CalledStrike``` package (version 0.5.2)  provides several visualizations of smoothed measures over the zone using Statcast data.  
+
+### Producing the Graphs
+
+Here are the basic steps to produce these graphs.
+
+-  By use of one of the set_up functions, define the relevant dataset and define any new variables if needed.  
+
+- Use a generalized additive model to fit a smooth model to the measure over the (plate_x, plate_z) surface.  In the case where the response is binary (1 or 0), fit a binary gam with logit link.  When the response is continuous, such as a launch velocity, use a continuous-response gam.
+
+- Use the model estimates to predict the measure over a 50 by 50 grid over the zone.  (The ```grid_predict()``` function is used.)
+
+- Use the ```geom_tile()``` or ```geom_contour_fill()``` geometric objects to graph the predicted values
+
+
+### Graph Types
+
+There are 13 possible measures on the zone.  For each type of measure, one can construct a tile plot or a filled contour plot.  For a filled contour plot, one has the option of specifying a vector of contour line values by use of the ```L``` argument.  For all graphs, one has the option of specifying a title by use of the ```title``` argument.
+
+Graph Type | Tile Plot Function | Contour Plot Function
+---- | ---- | ----
+called strikes | ```called_strike_plot()``` | ```called_strike_contour()```
+swing | ```swing_plot()``` | ```swing_contour()```
+contact on swing | ```contact_swing_plot()``` | ```contact_swing_contour()```
+miss on swing | ```miss_swing_plot()``` | ```miss_swing_contour()```
+in-play on swing | ```inplay_swing_plot()``` | ```inplay_swing_contour()```
+launch speed | ```ls_plot()``` | ```ls_contour()```
+launch angle | ```la_plot()``` | ```la_contour()```
+spray angle | ```sa_plot()``` | ```sa_contour()```
+batting average | ```hit_plot()``` | ```hit_contour()```
+home run | ```home_run_plot()``` | ```home_run_contour()```
+wOBA | ```woba_plot()``` | ```woba_contour()```
+expected batting average | ```ehit_plot()``` | ```ehit_contour()```
+expected wOBA | ```ewoba_plot()``` | ```ewoba_contour()```
+
+### Input is a Data Frame or a List
+
+The input to each function is a Statcast data frame or a list of Statcast data frames.  If the input is a list of data frames, one will see a paneled graphical display which is useful for comparison.
+
+### Example:  Nolan Arenado
+
+The package contains the dataset ```sc_sample``` containing Statcast data for all swings for 10 hitters in the 2019 season.
+
+First load in the ```CalledStrike``` package and the ```dplyr``` package which will be used for the ```filter()``` function.
+
+```{r}
+library(CalledStrike)
+library(dplyr)
+```
+
+One of the hitters is Nolan Arenado and I will collect Arenado's data for this demonstration.
+
+```{r}
+na <- filter(sc_sample,
+             player_name == "Nolan Arenado")
+```
+
+I'll look at locations of called strikes.
+
+```{r}
+called_strike_contour(na, L = c(0.25, .5, .75))
+```
+
+I'll look where Arenado swung at the pitch.
+
+```{r}
+swing_contour(na, L = seq(0, 1, by = 0.05))
+```
+
+Did he make contact with the pitch?
+
+```{r}
+contact_swing_contour(na, L = seq(0, 1, by = 0.05))
+```
+
+For the balls where he made contact, we look at the launch velocity.
+
+```{r}
+ls_contour(na, L = seq(60, 100, by = 2))
+```
+
+What was the expected batting average on the balls in play?
+
+```{r}
+ehit_contour(na, L = seq(0, .5, by = 0.01))
+```
+
+What was the expected wOBA on balls in play?
+
+```{r}
+ewoba_contour(na, L = seq(0, .5, by = 0.01))
+```
+
+### Example: Comparison Graphs
+
+Suppose we are interested in comparing Manny Machado with Matt Chapman with respect to launch velocity.
+
+```{r}
+mm <- filter(sc_sample,
+             player_name == "Manny Machado")
+mc <- filter(sc_sample,
+             player_name == "Matt Chapman")
+two_players <- list(mm, mc)
+names(two_players) <- c("Machado", "Chapman")
+ls_contour(two_players, L = seq(60, 100, by = 2),
+           title = "Launch Velocities of 2 Hitters")
+```
