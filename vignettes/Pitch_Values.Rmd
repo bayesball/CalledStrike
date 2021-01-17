@@ -1,0 +1,119 @@
+---
+title: "Computing Pitch Values"
+author: "Jim Albert"
+date: "1/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+### Outline of work on pitch values
+
+This illustrates new functions and data from the CalledStrike package to compute and graph pitch values.
+
+```{r}
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(CalledStrike)
+library(mgcv)
+library(metR)
+```
+
+#### Read in Statcast data
+
+Read in Statcast data from 2019 season:
+
+```{r}
+sc <- read_csv("~/Dropbox/2016 WORK/BLOG Baseball R/OTHER/StatcastData/statcast2019.csv")
+```
+
+#### Runs values
+
+The runs value of each count and the runs value for each end-of-PA outcome are contained in the dataset ```count_values``` contained in the ```CalledStrike``` package.
+
+```{r}
+count_values
+```
+
+#### Compute the pitch values
+
+The function ```compute_pitch_values()``` will create count variables and compute pitch values for all pitches in a Statcast dataset.
+
+```{r}
+sc <- compute_pitch_values(sc)
+```
+
+#### Remove some plays
+
+Remove plays like stolen bases and pickoff plays (with pitch value of 0) that don't affect pitch value.
+
+```{r}
+sc %>%
+  filter(abs(Runs.y) > 0) -> sc
+```
+
+
+#### Graph of Smoothed Pitch Values
+
+This gives graph for a specific pitch type.  Note that I have changed the sign on the pitch values so we get perspective from the pitcher.
+
+Pitch values of changeups to right-handed hitters.
+
+```{r}
+pitch_value_contour(filter(sc, 
+                           pitch_type == "CH",
+                           stand == "R"), 
+    title = "Pitch Values of Changeups, Stand = R")
+```
+
+Compare pitch values of changeups to left and right-handed hitters.
+
+```{r}
+changeups <- filter(sc, pitch_type == "CH")
+d <- split(changeups, changeups$stand)
+pitch_value_contour(d,
+      title = "Pitch Value of Changeups")
+```
+
+Compare for left and right sided pitchers.
+
+```{r}
+sc_L <- filter(sc, p_throws == "L")
+sc_R <- filter(sc, p_throws == "R")
+d <- c(split(sc_L, sc_L$stand),
+      split(sc_R, sc_R$stand))
+names(d) <- c("Pitch L, Stand L",
+              "Pitch L, Stand R",
+              "Pitch R, Stand L",
+              "Pitch R, Stand R")
+pitch_value_contour(d,
+      title = "Pitch Value of Changeups")
+```
+
+#### Tile Plots
+
+The function ```pitch_value_plot()``` constructs heat maps using the ```geom_tile()``` geometric object from the ggplot2 package.  They don't require an input of values for the contour lines.
+
+Pitch values of changeups to right-handed hitters.
+
+```{r}
+pitch_value_plot(filter(sc, 
+                           pitch_type == "CH",
+                           stand == "R"), 
+    title = "Pitch Values of Changeups, Stand = R")
+```
+
+
+
+
+
+
+
+
+
+
