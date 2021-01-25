@@ -5,12 +5,10 @@ library(CalledStrike)
 
 ui <- fluidPage(
   fluidRow(
-    h2(id="big-heading", " Pitch Value Across Counts"),
-    tags$style(HTML("#big-heading{color: blue;}")),
     column(4, wellPanel(
-      fileInput("file1", "Read in Statcast CSV File",
-                accept = ".csv"),
-      checkboxInput("header", "Header", TRUE),
+      h3(id="big-heading", " Pitch Value Across Counts:"),
+      h4("2019 Statcast Data"),
+      tags$style(HTML("#big-heading{color: blue;}")),
       radioButtons("p_type", "Pitch Type:",
                    c("CH", "CU", "FC", "FF", "FT",
                      "SI", "SL"),
@@ -54,17 +52,8 @@ server <- function(input, output, session) {
 
   options(shiny.maxRequestSize=60*1024^2)
 
-  the_data <- reactive({
-    file <- input$file1
-    ext <- tools::file_ext(file$datapath)
-    req(file)
-    validate(need(ext == "csv", "Please upload a csv file"))
-    read.csv(file$datapath, header = input$header)
-  })
-
   data <- eventReactive(input$goButton, {
-    df <- the_data()
-    df <- filter(df,
+    df <- filter(sc2019_pv,
                  stand == input$b_side,
                  p_throws == input$p_side,
                  pitch_type == input$p_type,
