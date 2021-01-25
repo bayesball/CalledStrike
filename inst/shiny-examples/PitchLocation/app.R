@@ -4,6 +4,8 @@ library(dplyr)
 library(readr)
 
 ui <- fluidPage(
+  h2(id="big-heading", "Pitch Locations"),
+  tags$style(HTML("#big-heading{color: blue;}")),
   fluidRow(
     column(4, wellPanel(
      selectInput("name", "Select 2019 Pitcher:",
