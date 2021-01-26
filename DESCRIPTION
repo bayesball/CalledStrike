@@ -1,7 +1,7 @@
 Package: CalledStrike
 Type: Package
 Title: Functions for Graphing Statcast Data
-Version: 0.5.2
+Version: 0.5.5
 Author: Jim Albert
 VignetteBuilder: knitr
 Suggests: knitr, rmarkdown
