@@ -2,6 +2,9 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(CalledStrike)
+# uses functions
+# pitch_value_contour(), grid_predict()
+# contour_graph(), increasefont(), centertitle()
 
 ui <- fluidPage(
   fluidRow(
