@@ -2,11 +2,14 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(CalledStrike)
+
 # uses functions
 # pitch_value_contour(), grid_predict()
 # contour_graph(), increasefont(), centertitle()
 
 ui <- fluidPage(
+  theme = bslib::bs_theme(version = 4,
+                    bootswatch = "lumen"),
   fluidRow(
     column(4, wellPanel(
       h3(id="big-heading", " Pitch Value Across Counts:"),
