@@ -1,4 +1,4 @@
-# CalledStrike Version 0.5.5
+# CalledStrike Version 0.5.6
 
 R package for manipulating, modeling, and visualizing Statcast pitching data.
 
