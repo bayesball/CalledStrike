@@ -1,6 +1,6 @@
 library(shiny)
 library(ggplot2)
-library(readr)
+library(dplyr)
 
 ui <- fluidPage(
       h2("Brushing In-Play Batting Averages"),
@@ -33,6 +33,7 @@ server <- function(input, output, session) {
   }, res = 96)
 
   output$data <- renderTable({
+    req(input$plot_brush)
     sc1 <- brushedPoints(filter(sc2019_ip,
                     player_name == input$name),
                     input$plot_brush)
