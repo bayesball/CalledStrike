@@ -2,6 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(readr)
+library(ggdensity)
 
 ui <- fluidPage(
   h2(id="big-heading", "Pitch Locations"),
@@ -84,7 +85,9 @@ server <- function(input, output, session) {
     title <- paste(name, ":", side, ptype)
 
     ggplot(d, aes(plate_x, plate_z)) +
-      geom_density_2d_filled(contour_var = "ndensity") +
+ #     geom_density_2d_filled(contour_var = "ndensity") +
+      geom_hdr(aes(fill = after_stat(probs)),
+               alpha = 1) +
       add_zone() +
       xlim(-2.5, 2.5) +
       ylim(0, 5) +
